@@ -1,0 +1,36 @@
+// @import 'vars'; если используете scss-переменные - подключите сюда vars, но удалите root из _vars.scss
+@import "./global.scss";
+@import "./vendor.scss";
+// CUSTOM COMPONENTS STYLES
+// .burger {
+//   --burger-width: 40px;
+//   --burger-height: 20px;
+//   --burger-line-height: 2px;
+
+//   @include burger;
+// }
+
+html{
+    font-size: 62.5%;
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: $white;
+    font-size: 1.4rem;
+    color: $white;
+    font-family: $font-family;
+    overflow-x: hidden;
+
+
+}
+a{
+    color: $black;
+}
+
+p{
+    margin: 0;
+}
+
+
+@import "./components/header";
