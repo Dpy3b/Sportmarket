@@ -58,13 +58,13 @@ ul {
   background: transparent;
   cursor: pointer;
 }
-
+/*
 .container {
   margin: 0 auto;
   padding: 0 15px;
   max-width: 1200px;
 }
-
+*/ // Нужно доработать сборку галпа, этот файл вообще возможно не нужен
 .js-focus-visible :focus:not(.focus-visible) {
   outline: none;
 }

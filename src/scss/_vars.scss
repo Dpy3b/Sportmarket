@@ -1,7 +1,12 @@
 // COLORS
 $font-family: "Roboto";
-$maxWidth: 140rem;
-$maxWidthContainer: 118rem;
+$minWidth: 320;
+$maxWidth: 1400;
+$maxWidthContainer: 1180;
+$md1: $maxWidthContainer + 12; // хз зачем так
+$md2: 991.98;
+$md3: 767.98;
+$md4: 479.98;
 
 
 $blue: #009eb2;
@@ -9,3 +14,5 @@ $white: #fff;
 $black: #000;
 $light-gray: #999;
 $blue2: #1ab9ce;
+$blue3: #14c0d4; //это цвет шапки в макете типа
+$orange: #f68038;

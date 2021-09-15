@@ -1,176 +1,524 @@
 .header {
-    background: url("/img/bg-header.jpg") top no-repeat;
-
+    background: url("/img/bg-header.png") top no-repeat;
 
     // .header__top
-    &__top {
-    }
+    &__top {}
+
     // .header__bottom
-    &__bottom {
+    &__bottom {}
+
+    @media (max-width: $md3+px) {
+        background: url("/img/bg-header.png") 0 -2rem no-repeat;
     }
 }
+
 .top-header {
-    background-color: $blue;
-    height: 105px;
+
     // .top-header__content
     &__content {
         display: flex;
         align-items: center;
         height: 9rem;
+
+        @media (max-width: $md3+px) {
+            height: 7rem;
+        }
     }
+
     // .top-header__column
     &__column {
         flex: 0 1 50%;
-        &--logo{
-            align-self: flex-start;
-            padding-top: 2.5rem;
+
+        &--logo {
             flex: 0 0 19rem;
             text-align: center;
+
+            @media (min-width: $md3+px) {
+                // upd - по итогу всё норм
+                align-self: flex-start; //чисто на всякий случай
+                padding-top: 2.5rem;
+                //нижнее условие было здесь, а теперь внизу по моей воле
+            }
+
+            @media (max-width: $md3+px) {
+                // моё адекватное решение
+                flex: 0 0 10rem;
+            }
+
+            // МОЙ КОСТЫЛЬ (НЕ КОСТЫЛЬ А АДЕКВАТНЫЙ КОД)
         }
     }
+
     // .top-header__menu
-    &__menu {
-    }
+    &__menu {}
+
     // .top-header__icon
-    &__icon {
-    }
+    &__icon {}
+
     // .top-header__logo
     &__logo {
+        position: relative;
+        z-index: 5;
+        display: inline-block;
+
+        @media (max-width: $md3+px) {
+            width: 10rem;
+
+            img {
+                max-width: 100%;
+            }
+        }
     }
+
     // .top-header__contacts
     &__contacts {
+        position: relative;
+        z-index: 5;
     }
 }
-.container {
-}
+
 .menu {
+
     // .menu__body
     &__body {
+        @media (max-width: $md2+px) {
+            opacity: 0;
+            visibility: hidden;
+            position: fixed;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            overflow: auto;
+            background-color: #fff;
+            z-index: 2;
+            padding: 12rem 2rem 3rem 2rem;
+            transition: all 0.3s ease 0s;
+
+            &::before {
+                content: '';
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 10.5rem;
+                width: 100%;
+                background-color: $blue;
+                z-index: 3;
+            }
+
+            &._active {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+
+        @media (max-width: $md3+px) {
+            padding: 9rem 2rem 3rem 2rem;
+
+            &::before {
+                height: 7rem;
+            }
+        }
     }
+
     // .menu__list
     &__list {
         display: grid;
-        grid-template-columns: 11rem 13rem 18rem;
-        li{
+        grid-template-columns: 11rem 13rem 18rem; //практика не лучшая, но так как дизайнер уебок приходится использовать фиксированные ширины
+
+        li {
             margin: 0.1rem 0;
         }
+
+        @media (max-width: $md1+px) {
+            grid-template-columns: 9rem 11rem 16rem;
+        }
+
+        @media (max-width: $md2+px) {
+            display: block;
+
+            li {
+                margin-bottom: 2rem;
+            }
+        }
+
     }
+
     // .menu__link
     &__link {
         color: $white;
         font-family: "PLay";
-        height: 2.7rem;
+        min-height: 2.7rem;
         display: inline-flex;
         justify-content: center;
         align-items: center;
         padding: 0.3rem 2.2rem;
         text-decoration: underline;
-        transition: 0.3s ease;
+        transition: all 0.3s ease 0s;
 
-        @media (min-width: 720px){
-            &:hover{
+        @media (min-width: $md2+px) {
+            &:hover {
                 border-radius: 20px;
                 background-color: #068292;
             }
         }
+
+        @media (min-width: $md1+px) {
+            padding: 0.3rem 1rem;
+        }
+
+        @media (max-width: $md2+px) {
+            color: #000;
+            padding: 0;
+            font-size: 2rem;
+        }
     }
 }
+
 .icon-menu {
+    display: none;
+
+    @media (max-width: $md2+px) {
+        display: block;
+        position: relative;
+        width: 3rem;
+        height: 1.8rem;
+        cursor: pointer;
+        z-index: 5;
+
+        span {
+            transition: all 0.3s ease 0s;
+            top: calc(50% - 0.1rem);
+            left: 0;
+            position: absolute;
+            width: 100%;
+            height: 0.2rem;
+            background-color: #fff;
+
+            &:first-child {
+                top: 0;
+            }
+
+            &:last-child {
+                top: auto;
+                bottom: 0;
+            }
+        }
+
+        &._active {
+            span {
+                transform: scale(0);
+
+                &:first-child {
+                    transform: rotate(-45deg);
+                    top: calc(50% - 0.1rem);
+                }
+
+                &:last-child {
+                    transform: rotate(45deg);
+                    top: calc(50% - 0.1rem);
+                }
+            }
+        }
+    }
+
 }
+
 .contacts-header {
     display: flex;
     justify-content: center;
+
+    @media(max-width: $md2+px) {
+        justify-content: flex-end;
+    }
+
+    @media(max-width: 640px) {
+        align-items: center;
+    }
+
     // .contacts-header__column
     &__column {
-        border-right: 1px solid $white;
         padding: 0 3rem;
-        &:last-child{
-            border: 0;
+
+        @media(min-width: $md2+px) {
+            border-left: 1px solid $white;
+
+            &:first-child {
+                border: 0;
+            }
+        }
+
+        @media(max-width: $md1+px) {
+            padding: 0 1.5rem;
+        }
+
+        @media(max-width: 640px) {
+            padding: 0;
         }
     }
+
     // .contacts-header__item
     &__item {
+
         // .contacts-header__item--icon
         &--icon {
             background: url('../img/phone.png') left no-repeat;
             padding-left: 3.7rem;
+
+            @media(max-width: $md1+px) {
+                padding-left: 2.5rem;
+                background-size: 1.5rem;
+            }
+
+            @media(max-width: 640px) {
+                background: none;
+                padding-left: 0;
+            }
+        }
+
+        &--second-phone {
+            @media(max-width: $md2+px) {
+                display: none;
+            }
         }
     }
+
     // .contacts-header__label
     &__label {
         font-size: 1.2rem;
         font-weight: 300;
         color: $white;
         margin-bottom: 0.5rem;
+
+        @media(max-width: 640px) {
+            display: none;
+        }
     }
+
     // .contacts-header__phone
     &__phone {
         font-size: 1.8rem;
         font-weight: 900;
         color: $white;
+        white-space: nowrap;
+
+        @media(max-width: $md1+px) {
+            font-size: 1.6rem;
+        }
+
+        @media(max-width: 640px) {
+            font-size: 0;
+            background: url('../img/phone.png') left no-repeat;
+            width: 1.9rem;
+            height: 2.5rem;
+            display: block;
+            margin-right: 1rem;
+        }
     }
 }
+
 .bottom-header {
+
     // .bottom-header__container
-    &__container {
+    &__container {}
+
+    &__row {
+        //тут мы наделали грязи лютой, 4 свойства ниже были в контейнере изначально а бп-ов вообще не было
         height: 6.3rem;
         display: flex;
         align-items: center;
+        justify-content: space-between;
+
+        @media(max-width: $md1+px) {
+            padding: 0 1rem;
+        }
+
+        @media(max-width: $md2+px) {
+            padding: 0;
+        }
     }
+
     // .bottom-header__column
     &__column {
-        flex: 0 1 50%;
+        flex: 0 1 calc(50% - 9.5rem);
     }
-    // .bottom-header__actions
-    &__actions {
 
-    }
+    // .bottom-header__actions
+    &__actions {}
+
     // .bottom-header__info
-    &__info {
-    }
+    &__info {}
 }
+
 .actions-header {
     display: flex;
-    // .actions-header__login
-    &__login {
+    align-items: center;
+
+    li {
+        margin-right: 5.4rem;
+
+        @media (max-width: $maxWidthContainer+px) {
+            margin-right: 30 / $maxWidthContainer * 100vw;
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    @media (max-width: 640px) {
+        justify-content: space-between;
+        margin-bottom: 1.5rem;
+    }
+
+    // .actions-header__item
+    &__item {
         padding-left: 3.6rem;
-        background: url('../img/login.png') left no-repeat;
         display: inline-block;
         line-height: 2.4rem;
         color: $light-gray;
-        span{
+        transition: color 0.3s ease;
+
+        span {
             border-bottom: 1px dotted;
         }
-    }
-    // .actions-header__signup
-    &__signup {
-        padding-left: 3.6rem;
-        background: url('../img/user.png') left no-repeat;
-        display: inline-block;
-        line-height: 2.4rem;
-        color: $blue2;
-        span{
-            border-bottom: 1px dotted;
+
+        &--login {
+            background: url('../img/login.png') left no-repeat;
         }
-    }
-    // .actions-header__email
-    &__email {
+
+        // .actions-header__item--signup
+        &--signup {
+            background: url('../img/user.png') left no-repeat;
+        }
+
+        // .actions-header__item--email
+        &--email {
+            background: url('../img/mail.png') left no-repeat;
+
+            span {
+                border-bottom: 1px solid;
+            }
+        }
+
+        @media (max-width: $md1+px) {
+            padding-left: 3rem;
+        }
+
+        @media (min-width: $md2+px) {
+            &:hover {
+                color: $blue2;
+            }
+        }
+
+        @media (max-width: $md2+px) {
+            padding: 0;
+            background: none;
+        }
+
+        // .actions-header__item--login
+
     }
 }
+
 .info-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     // .info-header__column
     &__column {
+        padding-right: 5.4rem;
+
+        @media (max-width: $maxWidthContainer+px) {
+            padding-right: 30 / $maxWidthContainer * 100vw;
+        }
+
+        &:last-child {
+            padding: 0;
+        }
     }
+
     // .info-header__callback
     &__callback {
+        background: url('../img/callback.png') left no-repeat;
+        display: inline-block;
+        color: $blue2;
+        line-height: 2rem;
+        padding-left: 3.2rem;
+        white-space: nowrap;
+
+        span {
+            border-bottom: 1px dotted;
+        }
     }
+
     // .info-header__schedule
     &__schedule {
+        background: url('../img/schedule.png') left no-repeat;
+        padding-left: 3.7rem;
         color: $black;
+        font-size: 1.2rem;
+        font-weight: 300;
+        line-height: 1.8rem;
+        color: $light-gray;
+
+        span {
+            font-weight: 900;
+        }
+
+        @media (max-width: $md1+px) {
+            background: none;
+            padding: 0;
+        }
+
+        @media (max-width: $md2+px) {
+            display: none;
+        }
+
     }
+
     // .info-header__cart
     &__cart {
+        width: 3.9rem;
+        height: 3.9rem;
+        display: inline-block;
+        background: url('../img/cart.png') 0 0 / 100% no-repeat;
+        position: relative;
+        cursor: pointer;
+
+        span {
+            padding: 0 0.7rem;
+            border-radius: 20px;
+            position: absolute;
+            line-height: 2.5rem;
+            background-color: $orange;
+            right: -2.5rem;
+            top: -0.3rem;
+            color: $white;
+            font-size: 1.8rem;
+            font-weight: 700;
+
+            @media (max-width: $md1+px) {
+                right: -1rem;
+            }
+
+            @media(max-width: 640px) {
+                font-size: 1.4rem;
+                line-height: 2rem;
+                padding: 0 0.5rem;
+                right: -0.5rem;
+            }
+        }
+
+        //вроде как выше абсолютно тоже самое
+        /* @media(max-width: 640px){
+            span{
+                font-size: 1.4rem;
+                line-height: 2rem;
+                padding: 0 0.5rem;
+            }
+        } */
+
     }
 }
-
-

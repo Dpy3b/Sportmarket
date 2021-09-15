@@ -1,5 +1,8 @@
-.container{
-    min-width: $maxWidthContainer;
+._container { // логика "_" в начале названия не очень понятна, это ж просто класс а не файл, хотя мб на это и расчет
+    max-width: $maxWidthContainer + px;
     margin: 0 auto;
     padding: 0 2rem;
+    @media (max-width: $md3+px){
+        padding: 0 1rem;
+    }
 }
