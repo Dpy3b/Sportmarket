@@ -1,5 +1,5 @@
 .header {
-    background: url("/img/bg-header.png") top no-repeat;
+    background: url("../img/bg-header.png") top no-repeat;
 
     // .header__top
     &__top {}
@@ -8,7 +8,7 @@
     &__bottom {}
 
     @media (max-width: $md3+px) {
-        background: url("/img/bg-header.png") 0 -2rem no-repeat;
+        background: url("../img/bg-header.png") 0 -2rem no-repeat;
     }
 }
 
