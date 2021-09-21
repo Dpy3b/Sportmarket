@@ -1,0 +1,437 @@
+.page {
+    flex: 1 1 auto;
+    padding-top: 16rem;
+    // .page__container
+    &__container {
+        display: flex;
+    }
+    // .page__side
+    &__side {
+        flex: 0 0 26rem;
+    }
+    // .page__menu
+    &__menu {
+    }
+    // .page__content
+    &__content {
+        flex: 1 1 auto;
+        padding-left: 3rem;
+    }
+    &__search{
+        margin-bottom: 2.2rem; //отступ от поиска до слайдера
+    }
+    &__slider {
+        margin-bottom: 6.5rem;
+    }
+}
+.menu-page {
+    position: relative;
+    background: url("../img/bg-menu.png") top no-repeat;
+    // .menu-page__header
+    &__header {
+        display: flex;
+        align-items: center;
+        padding: 2rem;
+    }
+    // .menu-page__title
+    &__title {
+        font-family: "UniSans", sans-serif;
+        font-size: 30px;
+        line-height: 35 / 30 * 100%;
+        text-transform: uppercase;
+        letter-spacing: .75px;
+        font-weight: 700;
+    }
+    // .menu-page__burger
+    &__burger {
+        flex: 0 0 3.6rem; // охуенный трюк
+        width: 3.6rem;
+        height: 3.6rem;
+        background-color: $blue4;
+        position: relative;
+        cursor: pointer;
+        z-index: 5;
+        padding: 1rem 0.6rem;
+        span {
+            transition: all 0.3s ease 0s;
+            top: calc(50% - 0.1rem);
+            left: 0;
+            position: absolute;
+            width: 100%;
+            height: 0.2rem;
+            background-color: #fff;
+
+            &:first-child {
+                top: 0;
+            }
+
+            &:last-child {
+                top: auto;
+                bottom: 0;
+            }
+        }
+        &._active {
+            span {
+                transform: scale(0); //это для плавного скрытия средней линии бургера
+
+                &:first-child {
+                    transform: rotate(-45deg);
+                    top: calc(50% - 0.1rem);
+                }
+
+                &:last-child {
+                    transform: rotate(45deg);
+                    top: calc(50% - 0.1rem);
+                }
+            }
+        }
+    }
+    // .menu-page__lines
+    &__lines{
+        height: 16px;
+        position: relative;
+    }
+    // .menu-page__body
+    &__body {
+        transition: all 0.5s ease 0s; //мы изначально транзишн прописали в ._active, из-за этого на .menu-page__list>li к border транзишн не применялся
+        height: 0;
+        overflow: hidden; //ваще можно overflow-x написать
+        &._active{
+            height: 53.2rem;
+        }
+    }
+    // .menu-page__list
+    &__list {
+        > li{ // ">" - обращение к li только первого уровня
+            border-bottom: 1px solid $gray2;
+        }
+    }
+    // .menu-page__parent
+    &__parent{
+        .menu-page__link{
+            &::after{
+                content: '';
+                position: absolute;
+                right: 1rem;
+                background: url("../img/menu-arrow.png") no-repeat;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 1.4rem;
+                height: 1.4rem;
+            }
+        }
+        &._active{
+            .submenu-page__item{
+                z-index: 2;
+                transform: translateX(0);
+            }
+            .menu-page__link{
+                background-color: $blue6;
+            }
+        }
+    }
+    // .menu-page__link
+    &__link {
+        letter-spacing: 0.3px;
+        font-weight: 300;
+        font-size: 1.3rem; //в макете 1.2 но пздц мелкий
+        color: $white;
+        display: block;
+        position: relative;
+        padding: 1.2rem 2rem;
+        transition: all 0.3s ease 0s;
+        @media (min-width: $md2+px){
+            &:hover{
+                background-color: $blue4;
+            }
+        }
+    }
+    &__submenu{
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 100%;
+        height: 100%;
+        overflow: hidden; //хз насколько таким способом адекватно делать выезжающее подменю
+    }
+}
+
+.submenu-page {
+		// .submenu-page__item
+    &__item {
+        transition: all .7s ease 0s; // от себя добавил
+        width: 28rem;
+        border: 2px solid $blue6;
+        background-color: $white;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        transform: translateX(-100%);
+    }
+    // .submenu-page__menu
+    &__menu {
+        border-bottom: 1px solid $gray3;
+        padding: 2rem 0;
+        li{
+
+        }
+    }
+    // .submenu-page__link
+    &__link {
+        font-size: 1.3rem; //увеличил сам с 1.2
+        //line-height: 3.6rem; //типа мы заменяем высоту строки паддингами
+        font-weight: 300;
+        color: $blue2;
+        letter-spacing: 0.3px;
+        padding: 1rem 4rem;
+        display: block;
+        transition: all 0.3s ease 0s;
+        @media(min-width: $md2+px){
+            &:hover{
+                color: $white;
+                background-color: $blue5;
+            }
+        }
+    }
+    // .submenu-page__product
+    &__product {
+        padding: 0 1.5rem;
+    }
+}
+.item-product {
+    padding: 1.5rem;
+    color: $black;
+    position: relative;
+    // .item-product__labels
+    &__labels {
+        position: absolute;
+        left: 15px;
+        top: 15px;
+    }
+    // .item-product__label
+    &__label {
+        display: inline-flex; //ваще-то тут должно быть просто flex, но посмотрим
+        justify-content: center;
+        align-items: center;
+        color: $white;
+        margin-bottom: 1rem;
+        padding: 0 1.5rem;
+        line-height: 2.1rem;
+        background-color: $orange;
+        text-transform: uppercase;
+        font-size: 1.4rem;
+        font-weight: 700;
+        border-radius: 15px;
+        cursor: pointer;
+    }
+    // .item-product__image
+    &__image {
+        height: 19.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem 0;
+        img{
+            max-width: 100%;
+            max-height: 17.5rem;
+        }
+    }
+    // .item-product__body
+    &__body{
+        padding: 0 1rem;
+    }
+    // .item-product__title
+    &__title {
+        color: $blue7;
+        font-size: 1.6rem;
+        font-weight: 300;
+        line-height: 2.4rem;
+        display: inline-block;
+        margin-bottom: 0.5rem;
+    }
+    // .item-product__footer
+    &__footer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+    // .item-product__old-price
+    &__old-price {
+        flex: 1 1 100%;
+        font-size: 1.8rem;
+        font-weight: 300;
+        text-decoration: line-through;
+        color: $light-gray;
+        text-align: right;
+    }
+    // .item-product__add
+    &__add {
+        background: url('../img/cart-gray.png') 0 0 no-repeat;
+        width: 4rem;
+        height: 4rem;
+    }
+    // .item-product__price
+    &__price {
+        font-size: 2.4rem;
+        font-weight: 900;
+        color: $black2;
+        text-align: right;
+    }
+}
+
+.search-page {
+    display: flex;
+    position: relative;
+    // .search-page__select
+    &__select {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        background-color: $white3;
+        padding: 0 1.4rem;
+        &::before{
+            content: '';
+            background: url('../img/search-page__icon.png') no-repeat;
+            width: 1.7rem;
+            height: 1.7rem;
+        }
+        &::after{
+            content: '';
+            background: url('../img/search-page__arrows.png') no-repeat;
+            width: 1rem;
+            height: 1rem;
+            transition: all 0.3s ease 0s;
+        }
+        &._categories{ // для смены спанов
+            span{
+                display: none;
+                &:last-child{
+                    display: block;
+                }
+            }
+        }
+        &._active{
+            &::after{
+                transform: rotate(-180deg);
+            }
+        }
+    }
+    // .search-page__title по идее не нужен этот класс либо спан UPD спан мы удалили
+    &__title{
+        margin: 0 1.3rem;
+        color: $gray4;
+        font-weight: 300;
+        border-bottom: 1px dotted;
+        span{
+            &:last-child{
+                display: none;
+            }
+        }
+    }
+    // .search-page__categories
+    &__categories {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+    }
+    // .search-page_input
+    &__input{
+        border-top: 2px solid $white2;
+        border-bottom: 2px solid $white2;
+        flex: 1 1 auto;
+        .input{
+            height: 100%;
+        }
+    }
+    // .search-page__btn
+    &__btn {
+    }
+}
+.categories-search {
+    border: 1px solid $white3;
+    background-color: $white;
+    //display: none;
+    height: 0;
+    overflow: hidden;
+    transition: all 0.5s ease 0s;
+    &::after{
+        content: '';
+        background-color: $orange;
+        height: 4px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+    }
+    &._active{
+        height: 28.033rem;
+        //
+    }
+    // .categories-search__row
+    &__row{
+        display: flex; // хуй знает по идее эта обертка лишняя
+    }
+
+    // .categories-search__column
+    &__column {
+        flex: 0 1 33.333%;
+        padding: 2.7rem 4rem;
+        border-right: 1px solid $white3;
+        &:last-child{
+            border: 0;
+        }
+    }
+    // .categories-search__list
+    &__list {
+        li{
+            margin-bottom: 2rem;
+            &:last-child{
+                margin-bottom: 0;
+            }
+
+        }
+    }
+    // .categories-search__checkbox
+    &__checkbox{
+        .checkbox__input{
+            &:checked + .checkbox__text{
+                color: $orange;
+            }
+        }
+        .checkbox__text{
+            color: $light-gray;
+            &::before{
+                display: none;
+            }
+        }
+    }
+}
+
+
+.input {
+    //ниже просто заготовка
+    border: 0;
+    width: 100%;
+    display: block;
+    padding: 0 2rem;
+    &._focus{
+
+    }
+    &._error{
+
+    }
+}
+
+
+
+
+
+.rub:after{
+    content: '₽';
+    font-size: 0.7em;
+    color: inherit;
+}

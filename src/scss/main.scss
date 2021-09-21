@@ -28,14 +28,9 @@ a{
     color: $black;
 }
 
-// p{
-//     margin: 0;
-// }
-
-
-
-
-
 @import "./components/container";
 @import "./components/header";
 @import "./components/wrapper";
+@import "./components/forms";
+@import "./components/page";
+@import "./components/home.scss";

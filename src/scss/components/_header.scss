@@ -1,5 +1,11 @@
 .header {
-    background: url("../img/bg-header.png") top no-repeat;
+    background: $white url("../img/bg-header.png") top no-repeat; // залили здесь и в бп шапку белым, чтобы не наезжал контент
+    //ниже добавили уже после коммита
+    top: 0;
+    left: 0;
+    z-index: 50;
+    width: 100%;
+    position: fixed;
 
     // .header__top
     &__top {}
@@ -8,7 +14,7 @@
     &__bottom {}
 
     @media (max-width: $md3+px) {
-        background: url("../img/bg-header.png") 0 -2rem no-repeat;
+        background: $white url("../img/bg-header.png") 0 -2rem no-repeat;
     }
 }
 
