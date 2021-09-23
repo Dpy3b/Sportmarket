@@ -1,24 +1,42 @@
 .page {
     flex: 1 1 auto;
     padding-top: 16rem;
+    @media (max-width: $md3+px){
+        padding-top: 13.03rem;
+    }
+    @media (max-width: 640px){
+        padding-top: 8.5rem;
+    }
     // .page__container
     &__container {
-        display: flex;
+        @media (min-width: $md2+px){
+            display: flex;
+        }
+
     }
     // .page__side
     &__side {
+        //position: relative; // зачем оно тут я хз??!??!
         flex: 0 0 26rem;
+        z-index: 3;
+        @media (max-width: $md2+px){
+            margin-bottom: 3rem;
+        }
     }
     // .page__menu
     &__menu {
     }
     // .page__content
     &__content {
+    @media (min-width: $md2+px){
         flex: 1 1 auto;
+        min-width: 0; //для страховки на случай поломки слайдера
         padding-left: 3rem;
+        }
     }
     &__search{
         margin-bottom: 2.2rem; //отступ от поиска до слайдера
+        z-index: 2;
     }
     &__slider {
         margin-bottom: 6.5rem;
@@ -26,7 +44,7 @@
 }
 .menu-page {
     position: relative;
-    background: url("../img/bg-menu.png") top no-repeat;
+    background: url("../img/bg-menu.webp") top repeat; //лол рили?!?!?!
     // .menu-page__header
     &__header {
         display: flex;
@@ -35,6 +53,7 @@
     }
     // .menu-page__title
     &__title {
+        flex: 1 1 auto;
         font-family: "UniSans", sans-serif;
         font-size: 30px;
         line-height: 35 / 30 * 100%;
@@ -94,7 +113,7 @@
     // .menu-page__body
     &__body {
         transition: all 0.5s ease 0s; //мы изначально транзишн прописали в ._active, из-за этого на .menu-page__list>li к border транзишн не применялся
-        height: 0;
+        min-height: 0; // изменили height на min-height и всё сразу встало норм при адаптиве, подтянулось так сказать у этого класса ещё без эктив
         overflow: hidden; //ваще можно overflow-x написать
         &._active{
             height: 53.2rem;
@@ -118,12 +137,28 @@
                 transform: translateY(-50%);
                 width: 1.4rem;
                 height: 1.4rem;
+                transition: all 0.5s ease 0s;
             }
         }
         &._active{
-            .submenu-page__item{
-                z-index: 2;
-                transform: translateX(0);
+            .menu-page__link::after{
+                transform: translateY(-50%) rotate(-180deg);
+                text-align: center;
+                top: 50%;
+            }
+            .menu-page__submenu{
+                opacity: 1;
+                visibility: visible;
+                pointer-events: all;
+
+            }
+            .submenu-page__item{ //дописали уже на 3:50+ при адаптиве
+                height: 17.03rem;
+                @media (min-width: $md2+px){
+                    z-index: 4;
+                    //transform: translateX(0);
+                    transform: translateY(0);
+                }
             }
             .menu-page__link{
                 background-color: $blue6;
@@ -145,30 +180,54 @@
                 background-color: $blue4;
             }
         }
+        @media (max-width: $md2+px){
+            font-size: 1.5rem;
+            //padding: 1rem 2rem;
+        }
     }
+    // .menu-page__submenu
     &__submenu{
-        width: 100%;
-        position: absolute;
-        top: 0;
-        left: 100%;
-        height: 100%;
-        overflow: hidden; //хз насколько таким способом адекватно делать выезжающее подменю
+        @media (min-width: $md2+px){ //дописали уже на 3:50+ при адаптиве
+            transition: all 0.5s ease 0s;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            transform: translateX(100%);
+            height: 100%;
+            //overflow: hidden; //хз насколько таким способом адекватно делать выезжающее подменю
+            pointer-events: none;
+            opacity: 0;
+            visibility: hidden;
+        }
     }
 }
 
 .submenu-page {
-		// .submenu-page__item
+    @media(max-width: $md2+px){
+        background: $white;
+    }
+	// .submenu-page__item
     &__item {
-        transition: all .7s ease 0s; // от себя добавил
-        width: 28rem;
-        border: 2px solid $blue6;
-        background-color: $white;
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        transform: translateX(-100%);
+        min-height: 0;
+        transition: all .5s ease 0s;
+        overflow: hidden; //едрить магия, сам придумал
+        @media (min-width: $md2+px){ //дописали уже на 3:50+ при адаптиве
+            transition: all .5s ease 0s; // от себя добавил
+            width: 28rem;
+            border: 2px solid $blue6;
+            background-color: $white;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            //top: 0;
+            //left: 0;
+            transform: translateX(-5%);
+            //transform: translateY(-10%);
+        }
+        @media (max-width: $md2+px){
+            height: 17.03rem;
+        }
+
     }
     // .submenu-page__menu
     &__menu {
@@ -194,10 +253,18 @@
                 background-color: $blue5;
             }
         }
+        @media(max-width: $md2+px){
+            font-size: 1.5rem;
+            padding: 1rem 2rem;
+        }
+
     }
     // .submenu-page__product
     &__product {
         padding: 0 1.5rem;
+        @media(max-width: $md2+px){
+            display: none;
+        }
     }
 }
 .item-product {
@@ -352,7 +419,6 @@
     }
 }
 .categories-search {
-    border: 1px solid $white3;
     background-color: $white;
     //display: none;
     height: 0;
@@ -374,6 +440,8 @@
     // .categories-search__row
     &__row{
         display: flex; // хуй знает по идее эта обертка лишняя
+        border-right: 1px solid $white2;
+        border-left: 1px solid $white2;
     }
 
     // .categories-search__column

@@ -89,7 +89,7 @@ const resources = () => {
 }
 
 const images = () => {
-  return src(['./src/img/**.jpg', './src/img/**.png', './src/img/**.jpeg', './src/img/*.svg'])
+  return src(['./src/img/**.jpg', './src/img/**.png', './src/img/**.jpeg', './src/img/*.svg','./src/img/**.webp'])
     .pipe(gulpif(isProd, image()))
     .pipe(dest('./app/img'))
 };
@@ -116,7 +116,7 @@ const watchFiles = () => {
   watch('./src/partials/*.html', htmlInclude);
   watch('./src/*.html', htmlInclude);
   watch('./src/resources/**', resources);
-  watch('./src/img/*.{jpg,jpeg,png,svg}', images);
+  watch('./src/img/*.{webp,jpg,jpeg,png,svg}', images);
   watch('./src/img/svg/**.svg', svgSprites);
 }
 

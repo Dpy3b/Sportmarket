@@ -342,6 +342,9 @@
         @media(max-width: $md2+px) {
             padding: 0;
         }
+        @media(max-width: 640px){ //от себя
+            display: none;
+        }
     }
 
     // .bottom-header__column
