@@ -1,90 +1,57 @@
-/**
-  * название функции
-  *
-  * @param {number} first - первое число
-  * @returns {number}
-  */
+// разворот бургера
+//===========
+let menuPageBurger = document.querySelector('.menu-page__burger');
+let menuPageBody = document.querySelector('.menu-page__body');
+menuPageBurger.addEventListener('click', function(e){
+    menuPageBurger.classList.toggle('_active');
+    _slideToggle(menuPageBody);
+    //ваще можно было к одному классу прописать одинаковые стили по идее, но мы экономим время поэтому делаем вот так вот
+});
 
-//isMobile
+// разворот сайд-подменю на десктопе и мобилках
+//===========
+let menuParent = document.querySelectorAll('.menu-page__parent');
+let menuParents = document.querySelectorAll('.menu-page__parent>a');
 
-var ua = window.navigator.userAgent
-  , msie = ua.indexOf("MSIE ")
-  , isMobile = {
-    Android: function() {
-        return navigator.userAgent.match(/Android/i)
-    },
-    BlackBerry: function() {
-        return navigator.userAgent.match(/BlackBerry/i)
-    },
-    iOS: function() {
-        return navigator.userAgent.match(/iPhone|iPad|iPod/i)
-    },
-    Opera: function() {
-        return navigator.userAgent.match(/Opera Mini/i)
-    },
-    Windows: function() {
-        return navigator.userAgent.match(/IEMobile/i)
-    },
-    any: function() {
-        return isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows()
-    }
-};
-function isIE() {
-    return (ua = navigator.userAgent).indexOf("MSIE ") > -1 || ua.indexOf("Trident/") > -1
-}
-isIE() && document.querySelector("body").classList.add("ie"),
-isMobile.any() && document.querySelector("body").classList.add("_touch");
-//isMobile
-
-if(isMobile.any()){
-//если мы на мобилке - чето будем делать с маусентером (клик вешаем и слушаем)
-    let menuParents = document.querySelectorAll('.menu-page__parent>a'); //обращаемся не ко всем ссылкам, а только к тем кто вложен в парент, поэтому с >
+if(isMobile.any() || document.documentElement.clientWidth <= 991.98){
     for (let index = 0; index < menuParents.length; index++) {
         const menuParent = menuParents[index];
+        const submenuItems = menuParents[index].parentElement.querySelector('.submenu-page__item');
         menuParent.addEventListener('click', function(e){
-            menuParent.parentElement.classList.toggle('_active');
+            menuParent.parentElement.classList.toggle('_active'),
+            _slideToggle(submenuItems),
             e.preventDefault();
         });
     }
-}else{ //если нет - всё стандартно
-    let menuParents = document.querySelectorAll('.menu-page__parent');
-    let submenuItems = document.querySelectorAll('.submenu-page__item');
+    }else{
 
-    for (let index = 0; index < menuParents.length; index++){
-        const menuParent = menuParents[index];
-        menuParent.addEventListener("mouseenter", function(e){
-            menuParent.classList.add('_active');
-        });
-        menuParent.addEventListener("mouseleave", function(e){
-            menuParent.classList.remove('_active');
-        });
+        for (let index = 0; index < menuParent.length; index++){
+            menuParent[index].addEventListener("mouseenter", (function(){
+                menuParent[index].classList.add('_active');
+            }
+            )),
+            menuParent[index].addEventListener("mouseleave", (function(){
+                menuParent[index].classList.remove('_active');
+            }
+            ));
+        }
     }
-}
-
 
 document.querySelector(".icon-menu").addEventListener("click", () => {
 document.querySelector(".icon-menu").classList.toggle("_active"), document.querySelector(".menu__body").classList.toggle("_active")
 });
 
-
-
-let menuPageBurger = document.querySelector('.menu-page__burger');
-let menuPageBody = document.querySelector('.menu-page__body');
-
-
-menuPageBurger.addEventListener('click', function(e){
-    menuPageBurger.classList.toggle('_active');
-    menuPageBody.classList.toggle('_active');
-    //ваще можно было к одному классу прописать одинаковые стили по идее, но мы экономим время поэтому делаем вот так вот
-});
-
+// разворот поиска по категориям
+//===========
 let searchSelect= document.querySelector('.search-page__select');
 let categoriesSearch = document.querySelector('.categories-search');
 searchSelect.addEventListener('click', function(e){
     searchSelect.classList.toggle('_active');
-    categoriesSearch.classList.toggle('_active');
+    _slideToggle(categoriesSearch);
 });
 
+// чекбоксы
+//===========
 let checkboxCategories = document.querySelectorAll('.categories-search__checkbox');
 
 for (let index = 0; index < checkboxCategories.length; index++) {
@@ -104,87 +71,11 @@ for (let index = 0; index < checkboxCategories.length; index++) {
     });
 }
 
-
-// swiper slider start
-let sliders = document.querySelectorAll("._swiper");
-if (sliders) {
-    for (let e = 0; e < sliders.length; e++) {
-        let t = sliders[e];
-        if (!t.classList.contains("swiper-bild")) {
-            let e = t.children;
-            if (e)
-                for (let t = 0; t < e.length; t++) {
-                    e[t].classList.add("swiper-slide")
-                }
-            let o = t.innerHTML,
-                l = document.createElement("div");
-            if (l.classList.add("swiper-wrapper"), l.innerHTML = o, t.innerHTML = "", t.appendChild(l), t.classList.add("swiper-bild"), t.classList.contains("_swiper_scroll")) {
-                let e = document.createElement("div");
-                e.classList.add("swiper-scrollbar"), t.appendChild(e)
-            }
-        }
-        t.classList.contains("_gallery")
-    }
-    sliders_bild_callback()
-}
-
-function sliders_bild_callback(e) {}
-let sliderScrollItems = document.querySelectorAll("._swiper_scroll");
-if (sliderScrollItems.length > 0)
-    for (let e = 0; e < sliderScrollItems.length; e++) {
-        const t = sliderScrollItems[e],
-            o = t.querySelector(".swiper-scrollbar");
-        new Swiper(t, {
-            direction: "vertical",
-            slidesPerView: "auto",
-            freeMode: !0,
-            scrollbar: {
-                el: o,
-                draggable: !0,
-                snapOnRelease: !1
-            },
-            mousewheel: {
-                releaseOnEdges: !0
-            }
-        }).scrollbar.updateSize()
-    }
-
-function sliders_bild_callback(e) {}
-if (document.querySelector(".mainslider")) {
-    let slider__about = new Swiper(".mainslider__body", {
-        autoplay: {
-            delay: 1e4,
-            disableOnInteraction: !1
-        },
-        observer: !0,
-        observeParents: !0,
-        slidesPerView: 1,
-        spaceBetween: 0,
-        speed: 800,
-        preloadImages: !1,
-        lazy: {
-            loadPrevNext: !0
-        },
-        pagination: {
-            el: ".mainslider__dotts",
-            clickable: !0
-        }
-    });
-    let mainSliderImages = document.querySelectorAll('.mainslider__image');
-    let mainSliderDotts = document.querySelectorAll('.mainslider__dotts .swiper-pagination-bullet');
-
-    for (let index = 0; index < mainSliderImages.length; index++) {
-        const mainSliderImage = mainSliderImages[index].querySelector('img').getAttribute('src');
-        mainSliderDotts[index].style.backgroundImage = "url('" + mainSliderImage + "')";
-
-    }
-}
-// swiper slider end
-
-
+//===========
+//.swiper-pagination-bullets .swiper-pagination-horizontal
 let HUETA_EBUCHAYA = document.querySelector('.mainslider__dotts');
 HUETA_EBUCHAYA.classList.remove('swiper-pagination-horizontal');
 
-//.swiper-pagination-bullets .swiper-pagination-horizontal
+
 
 

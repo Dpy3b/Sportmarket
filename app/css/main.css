@@ -1379,7 +1379,7 @@ a {
       display: flex; } }
   .page__side {
     flex: 0 0 26rem;
-    z-index: 3; }
+    z-index: 5; }
     @media (max-width: 991.98px) {
       .page__side {
         margin-bottom: 3rem; } }
@@ -1390,7 +1390,7 @@ a {
       padding-left: 3rem; } }
   .page__search {
     margin-bottom: 2.2rem;
-    z-index: 2; }
+    z-index: 4; }
   .page__slider {
     margin-bottom: 6.5rem; }
 
@@ -1443,11 +1443,9 @@ a {
     height: 16px;
     position: relative; }
   .menu-page__body {
-    transition: all 0.5s ease 0s;
-    min-height: 0;
-    overflow: hidden; }
+    display: none; }
     .menu-page__body._active {
-      height: 53.2rem; }
+      display: block; }
   .menu-page__list > li {
     border-bottom: 1px solid #1aa7b9; }
   .menu-page__parent .menu-page__link::after {
@@ -1460,22 +1458,24 @@ a {
     width: 1.4rem;
     height: 1.4rem;
     transition: all 0.5s ease 0s; }
+    @media (max-width: 991.98px) {
+      .menu-page__parent .menu-page__link::after {
+        transform: translateY(-50%) rotate(90deg); } }
   .menu-page__parent._active .menu-page__link::after {
     transform: translateY(-50%) rotate(-180deg);
     text-align: center;
     top: 50%; }
   .menu-page__parent._active .menu-page__submenu {
-    opacity: 1;
-    visibility: visible;
     pointer-events: all; }
-  .menu-page__parent._active .submenu-page__item {
-    height: 17.03rem; }
-    @media (min-width: 991.98px) {
-      .menu-page__parent._active .submenu-page__item {
-        z-index: 4;
-        transform: translateY(0); } }
+  @media (min-width: 991.98px) {
+    .menu-page__parent._active .submenu-page__item {
+      transform: translateX(0);
+      z-index: 6; } }
   .menu-page__parent._active .menu-page__link {
     background-color: #098494; }
+    @media (max-width: 991.98px) {
+      .menu-page__parent._active .menu-page__link::after {
+        transform: translateY(-50%) rotate(-90deg); } }
   .menu-page__link {
     letter-spacing: 0.3px;
     font-weight: 300;
@@ -1497,22 +1497,21 @@ a {
       width: 100%;
       position: absolute;
       top: 0;
-      transform: translateX(100%);
       height: 100%;
+      left: 100%;
       pointer-events: none;
-      opacity: 0;
-      visibility: hidden; } }
+      overflow: hidden; } }
 
 @media (max-width: 991.98px) {
   .submenu-page {
     background: #fff; } }
 
 .submenu-page__item {
-  min-height: 0;
-  transition: all .5s ease 0s;
-  overflow: hidden; }
+  display: none; }
   @media (min-width: 991.98px) {
     .submenu-page__item {
+      display: block;
+      overflow-x: hidden;
       transition: all .5s ease 0s;
       width: 28rem;
       border: 2px solid #098494;
@@ -1520,10 +1519,10 @@ a {
       position: absolute;
       width: 100%;
       height: 100%;
-      transform: translateX(-5%); } }
-  @media (max-width: 991.98px) {
-    .submenu-page__item {
-      height: 17.03rem; } }
+      top: 0;
+      left: 0;
+      transform: translateX(-100%);
+      z-index: 3; } }
 
 .submenu-page__menu {
   border-bottom: 1px solid #dedede;
@@ -1661,8 +1660,7 @@ a {
 
 .categories-search {
   background-color: #fff;
-  height: 0;
-  overflow: hidden;
+  display: none;
   transition: all 0.5s ease 0s; }
   .categories-search::after {
     content: '';
@@ -1673,17 +1671,21 @@ a {
     left: 0;
     width: 100%; }
   .categories-search._active {
-    height: 28.033rem; }
-  .categories-search__row {
-    display: flex;
-    border-right: 1px solid #f2f2f2;
-    border-left: 1px solid #f2f2f2; }
+    display: block; }
+  @media (min-width: 767.98px) {
+    .categories-search__row {
+      display: flex;
+      border-right: 1px solid #f2f2f2;
+      border-left: 1px solid #f2f2f2; } }
   .categories-search__column {
     flex: 0 1 33.333%;
     padding: 2.7rem 4rem;
     border-right: 1px solid #f3f3f3; }
     .categories-search__column:last-child {
       border: 0; }
+    @media (max-width: 1192px) {
+      .categories-search__column {
+        padding: 2.7rem 2rem; } }
   .categories-search__list li {
     margin-bottom: 2rem; }
     .categories-search__list li:last-child {

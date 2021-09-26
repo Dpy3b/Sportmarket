@@ -18,7 +18,7 @@
     &__side {
         //position: relative; // зачем оно тут я хз??!??!
         flex: 0 0 26rem;
-        z-index: 3;
+        z-index: 5;
         @media (max-width: $md2+px){
             margin-bottom: 3rem;
         }
@@ -36,7 +36,7 @@
     }
     &__search{
         margin-bottom: 2.2rem; //отступ от поиска до слайдера
-        z-index: 2;
+        z-index: 4;
     }
     &__slider {
         margin-bottom: 6.5rem;
@@ -112,11 +112,12 @@
     }
     // .menu-page__body
     &__body {
-        transition: all 0.5s ease 0s; //мы изначально транзишн прописали в ._active, из-за этого на .menu-page__list>li к border транзишн не применялся
-        min-height: 0; // изменили height на min-height и всё сразу встало норм при адаптиве, подтянулось так сказать у этого класса ещё без эктив
-        overflow: hidden; //ваще можно overflow-x написать
+        //transition: all 0.5s ease 0s; //мы изначально транзишн прописали в ._active, из-за этого на .menu-page__list>li к border транзишн не применялся
+        //min-height: 0; // изменили height на min-height и всё сразу встало норм при адаптиве, подтянулось так сказать у этого класса ещё без эктив
+        //overflow: hidden; //ваще можно overflow-x написать
+        display: none;
         &._active{
-            height: 53.2rem;
+            display: block;
         }
     }
     // .menu-page__list
@@ -138,6 +139,9 @@
                 width: 1.4rem;
                 height: 1.4rem;
                 transition: all 0.5s ease 0s;
+                @media (max-width:$md2+px){
+                    transform: translateY(-50%) rotate(90deg);
+                }
             }
         }
         &._active{
@@ -147,21 +151,26 @@
                 top: 50%;
             }
             .menu-page__submenu{
-                opacity: 1;
-                visibility: visible;
                 pointer-events: all;
-
             }
             .submenu-page__item{ //дописали уже на 3:50+ при адаптиве
-                height: 17.03rem;
+                //height: 17.03rem;
+                //display: block;
+                //display: block;
                 @media (min-width: $md2+px){
-                    z-index: 4;
-                    //transform: translateX(0);
-                    transform: translateY(0);
+
+                    transform: translateX(0);
+                    z-index: 6;
+                    //transform: translateY(0);
                 }
             }
             .menu-page__link{
                 background-color: $blue6;
+                @media (max-width:$md2+px){
+                    &::after{
+                        transform: translateY(-50%) rotate(-90deg);
+                    }
+                }
             }
         }
     }
@@ -192,12 +201,12 @@
             width: 100%;
             position: absolute;
             top: 0;
-            transform: translateX(100%);
+            //transform: translateX(100%);
             height: 100%;
+            left: 100%;
             //overflow: hidden; //хз насколько таким способом адекватно делать выезжающее подменю
             pointer-events: none;
-            opacity: 0;
-            visibility: hidden;
+            overflow: hidden;
         }
     }
 }
@@ -208,24 +217,33 @@
     }
 	// .submenu-page__item
     &__item {
-        min-height: 0;
-        transition: all .5s ease 0s;
-        overflow: hidden; //едрить магия, сам придумал
+        display: none;
+        //min-height: 0;
+
+        //overflow: hidden; //едрить магия, сам придумал
         @media (min-width: $md2+px){ //дописали уже на 3:50+ при адаптиве
-            transition: all .5s ease 0s; // от себя добавил
+            //transition: all .5s ease 0s; // от себя добавил
+            //display: none;
+            //display: block;
+            display: block;
+            overflow-x: hidden;
+            transition: all .5s ease 0s;
             width: 28rem;
             border: 2px solid $blue6;
             background-color: $white;
             position: absolute;
             width: 100%;
             height: 100%;
-            //top: 0;
-            //left: 0;
-            transform: translateX(-5%);
+            top: 0;
+            left: 0;
+            transform: translateX(-100%);
+
             //transform: translateY(-10%);
+            z-index: 3;
+
         }
         @media (max-width: $md2+px){
-            height: 17.03rem;
+            //height: 17.03rem;
         }
 
     }
@@ -420,9 +438,9 @@
 }
 .categories-search {
     background-color: $white;
-    //display: none;
-    height: 0;
-    overflow: hidden;
+    display: none;
+    //height: 0;
+    //overflow: hidden;
     transition: all 0.5s ease 0s;
     &::after{
         content: '';
@@ -434,14 +452,17 @@
         width: 100%;
     }
     &._active{
-        height: 28.033rem;
+        //height: 28.033rem;
+        display: block; //это писать не обязательно т.к. у нас функция слайдтоггл в жс делает всё как нужно
         //
     }
     // .categories-search__row
     &__row{
-        display: flex; // хуй знает по идее эта обертка лишняя
-        border-right: 1px solid $white2;
-        border-left: 1px solid $white2;
+        @media (min-width:$md3+px){
+            display: flex; // хуй знает по идее эта обертка лишняя
+            border-right: 1px solid $white2;
+            border-left: 1px solid $white2;
+        }
     }
 
     // .categories-search__column
@@ -451,6 +472,9 @@
         border-right: 1px solid $white3;
         &:last-child{
             border: 0;
+        }
+        @media (max-width:$md1+px){
+            padding: 2.7rem 2rem;
         }
     }
     // .categories-search__list
