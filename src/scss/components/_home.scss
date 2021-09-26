@@ -29,6 +29,9 @@
         justify-content: center;
         margin: -2.75rem 2.3rem 0 2.3rem;
         counter-reset: item;
+        @media (min-width: 567.98px){
+            margin: -2.75rem 0 0;
+        } //тупо украл у bdemetrix'a (хотя нам надо украть для swiper-pagination)
         .swiper-pagination-bullet{
             display: inline-block !important; //иначе там какой-то класс перекрывает единственную точку, хотя можно удалить когда точек будет больше
             margin: 0 2.3rem;

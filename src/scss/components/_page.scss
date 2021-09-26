@@ -25,6 +25,7 @@
     }
     // .page__menu
     &__menu {
+        margin-bottom: 4rem;
     }
     // .page__content
     &__content {
@@ -34,12 +35,29 @@
         padding-left: 3rem;
         }
     }
+    // .page__search
     &__search{
         margin-bottom: 2.2rem; //отступ от поиска до слайдера
         z-index: 4;
     }
+    // .page__slider
     &__slider {
         margin-bottom: 6.5rem;
+    }
+    // .page__news-side
+    &__news-side{
+        color: $black;
+        margin-bottom: 7.5rem;
+        &:last-child{
+            margin-bottom: 0;
+        } // не понятно зачем нам в обоих этих классах ласт чайлд, блок то чисто один
+    }
+    // .page__reviews-side
+    &__reviews-side{
+        margin-bottom: 7.5rem;
+        &:last-child{
+            margin-bottom: 0;
+        }
     }
 }
 .menu-page {
@@ -377,6 +395,9 @@
         align-items: center;
         background-color: $white3;
         padding: 0 1.4rem;
+        @media (max-width:$md3+px){
+            display: none;
+        }
         &::before{
             content: '';
             background: url('../img/search-page__icon.png') no-repeat;
@@ -428,6 +449,9 @@
         border-top: 2px solid $white2;
         border-bottom: 2px solid $white2;
         flex: 1 1 auto;
+        @media (max-width:$md3+px){
+            border: 2px solid $white2;
+        }
         .input{
             height: 100%;
         }
@@ -463,6 +487,9 @@
             border-right: 1px solid $white2;
             border-left: 1px solid $white2;
         }
+        @media (max-width:$md2+px){
+            padding: 2rem 0;
+        }
     }
 
     // .categories-search__column
@@ -476,6 +503,14 @@
         @media (max-width:$md1+px){
             padding: 2.7rem 2rem;
         }
+        @media (max-width:$md2+px){
+            padding: 0 2rem;
+            margin-bottom: 2rem;
+            &:last-child{
+                margin-bottom: 0;
+            }
+        }
+
     }
     // .categories-search__list
     &__list {
@@ -526,4 +561,160 @@
     content: '₽';
     font-size: 0.7em;
     color: inherit;
+}
+
+.side-title {
+    font-family: "UniSans", sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 116.66667%;
+    letter-spacing: 0.75px;
+    color: $gray3;
+    transition: all 0.3s ease 0s;
+    @media (min-width:$md2+px){
+        &:hover{
+            color: $blue2;
+        }
+    }
+}
+.news-side {
+    // .news-side__title
+    &__title {
+        display: inline-block;
+        margin: 0 0 25px/30px * 1em 0;
+    }
+    // .news-side__items
+    &__items {
+    }
+    // .news-side__item
+    &__item {
+        margin-bottom: 4.5rem;
+        &:last-child{
+            margin-bottom: 0;
+        }
+    }
+    //.news-side__label
+    &__label{
+        color: $black2;
+        font-size: 1.3rem;
+        line-height: 1.8rem;
+        font-weight: 900;
+        text-transform: uppercase;
+        margin: 0 0 20px/12px * 1em 0;
+        display: inline-block;
+        transition: all 0.3s ease 0s;
+        @media (min-width:$md2+px){
+            &:hover{
+                color: $orange2;
+            }
+        }
+    }
+    // .news-side__body
+    &__body {
+        display: flex;
+    }
+    // .news-side__data
+    &__date {
+        flex: 0 0 3rem;
+        text-align: center;
+        //text-transform: uppercase;
+        color: $gray7;
+        font-size: 1.8rem;
+        font-weight: 300;
+        span{
+            display: block;
+            font-weight: 900;
+            font-size: 2.4rem;
+        }
+    }
+    // .news-side__text
+    &__text {
+        font-size: 1.3rem;
+        line-height: 1.8rem;
+        font-weight: 300;
+        color: $gray4;
+        padding-left: 1.5rem;
+    }
+}
+
+.reviews-side {
+    // .reviews-side__title
+    &__title {
+        display: inline-block;
+        margin: 0 0 20px/30px * 1em 0;
+    }
+    // .reviews-side__items
+    &__items {
+
+    }
+    // .reviews-side__item
+    &__item {
+        margin-bottom: 4rem;
+        &:last-child{
+            margin-bottom: 0;
+        }
+        @media (min-width:$md2+px){
+            &:hover{
+                .reviews-side__user,
+                .reviews-side__date{
+                    color: $blue2;
+                }
+                .reviews-side__body{
+                    background-color: $blue2;
+                    color: $white;
+                }
+            }
+        }
+    }
+    // .reviews-side__header
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+        transition: all 0.3s ease 0s;
+    }
+    // .reviews-side__user
+    &__user {
+        font-size: 1.3rem;
+        line-height: 1.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: $black2;
+        transition: all 0.3s ease 0s;
+        @media (min-width:$md2+px){
+            &:hover{
+                color: $blue2;
+            }
+        }
+    }
+    // .reviews-side__date
+    &__date {
+        color: $gray7;
+        font-size: 1.3rem;
+        line-height: 1.8rem;
+        font-weight: 300;
+    }
+    // .reviews-side__body
+    &__body {
+        transition: all 0.3s ease 0s;
+        position: relative;
+        padding: 1.4rem 0.8rem 1.4rem 3rem;
+        &::before{
+            content: '”';
+            position: absolute;
+            left: 8px;
+            top: 12px;
+            font-size: 4.8rem;
+            color: $gray3;
+            font-weight: 700;
+            line-height: 1;
+        }
+        color: $gray4;
+        font-size: 1.3rem;
+        line-height: 1.8rem;
+        font-weight: 300;
+    }
+}
+.side-title {
 }
