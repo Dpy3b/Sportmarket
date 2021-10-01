@@ -163,7 +163,7 @@ if (document.querySelector(".products-slider")) {
     })
 }
 
-/* let itemProductImages = document.querySelectorAll(".item-product__image"),
+let itemProductImages = document.querySelectorAll(".item-product__image"),
     body = document.querySelector("body");
 if (itemProductImages && body.offsetWidth > 991.98)
     for (let e = 0; e < itemProductImages.length; e++) {
@@ -176,4 +176,4 @@ if (itemProductImages && body.offsetWidth > 991.98)
             o.classList.remove("_active")
         }))
     }
- */
+

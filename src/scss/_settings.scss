@@ -1,12 +1,18 @@
-html {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
-
+/* // было
+html{
+    box-sizing: border-box;
+}
 *,
 *::before,
 *::after {
   box-sizing: inherit;
 }
+ */
 
 body {
   margin: 0;
