@@ -1,3 +1,11 @@
+function ibg() {
+    if (isIE()) {
+        let t = document.querySelectorAll("._ibg");
+        for (var e = 0; e < t.length; e++)
+            t[e].querySelector("img") && null != t[e].querySelector("img").getAttribute("src") && (t[e].style.backgroundImage = "url(" + t[e].querySelector("img").getAttribute("src") + ")")
+    }
+}
+
 
 //SlidetToggle
 let _slideUp = (e,t=500)=>{
@@ -166,7 +174,7 @@ if (sliderScrollItems.length > 0)
 
 function sliders_bild_callback(e) {}
 if (document.querySelector(".mainslider")) {
-    let slider__about = new Swiper(".mainslider__body", {
+    let mainslider = new Swiper(".mainslider__body", {
         autoplay: {
             delay: 1e4,
             disableOnInteraction: !1
@@ -195,6 +203,139 @@ if (document.querySelector(".mainslider")) {
     }
 }
 // swiper slider end
+/* if (document.querySelector('.products-slider')){
+    let productsSlider = new Swiper(".products-slider__item", {
+        //  autoplay: {
+        //     delay: 1e4,
+        //     disableOnInteraction: !1
+        // },
+        observer: !0,
+        observeParents: !0,
+        slidesPerView: 1,
+        spaceBetween: 0,
+        speed: 800,
+        preloadImages: !1,
+        lazy: {
+            loadPrevNext: !0
+        },
+        // pagination: {
+        //     el: ".mainslider__dotts",
+        //     clickable: !0
+        // },
+        navigation: {
+            nextEl: ".products-slider__arrow--next",
+            prevEl: ".products-slider__arrow--prev",
+        },
+    });
+}
+ */
+
+/* if (document.querySelector(".products-slider")) {
+    new Swiper(".products-slider__body",{
+        observer: !0,
+        observeParents: !0,
+        slidesPerView: 3,
+        slidesPerGroup: 3,
+        spaceBetween: 28,
+        autoHeight: !1,
+        speed: 800,
+        loop: !0,
+        lazy: {
+            loadPrevNext: !0
+        },
+        pagination: {
+            el: ".products-slider__info",
+            type: "fraction"
+        },
+        navigation: {
+            nextEl: ".products-slider__arrow--next",
+            prevEl: ".products-slider__arrow--prev"
+        },
+        breakpoints: {
+            280: {
+                slidesPerView: 1,
+                slidesPerGroup: 1,
+                spaceBetween: 0,
+                autoHeight: !0
+            },
+            567.98: {
+                slidesPerView: 2,
+                slidesPerGroup: 2
+            },
+            1100: {
+                slidesPerView: 3,
+                slidesPerGroup: 3
+            }
+        }
+    })
+} */
+if (document.querySelector(".products-slider")) {
+    new Swiper(".products-slider__item", {
+        observer: !0,
+        observeParents: !0,
+        slidesPerView: 1,
+        spaceBetween: 0,
+        autoHeight: !0,
+        speed: 800,
+        pagination: {
+            el: ".products-slider__info",
+            type: "fraction"
+        },
+        navigation: {
+            nextEl: ".products-slider__arrow--next",
+            prevEl: ".products-slider__arrow--prev"
+        },
+        /* on: {
+            lazyImageReady: function () {
+                ibg()
+            }
+        } */
+    })
+}
+
+/* let itemProductImages = document.querySelectorAll(".item-product__image"),
+    body = document.querySelector("body");
+if (itemProductImages && body.offsetWidth > 991.98)
+    for (let e = 0; e < itemProductImages.length; e++) {
+        const t = itemProductImages[e],
+            o = t.parentElement,
+            l = o.querySelector(".item-product__hover");
+        l && (t.addEventListener("mouseenter", e => {
+            o.classList.add("_active")
+        }), l.addEventListener("mouseleave", e => {
+            o.classList.remove("_active")
+        }))
+    }
+ */
+
+var ua = window.navigator.userAgent
+  , msie = ua.indexOf("MSIE ")
+  , isMobile = {
+    Android: function() {
+        return navigator.userAgent.match(/Android/i)
+    },
+    BlackBerry: function() {
+        return navigator.userAgent.match(/BlackBerry/i)
+    },
+    iOS: function() {
+        return navigator.userAgent.match(/iPhone|iPad|iPod/i)
+    },
+    Opera: function() {
+        return navigator.userAgent.match(/Opera Mini/i)
+    },
+    Windows: function() {
+        return navigator.userAgent.match(/IEMobile/i)
+    },
+    any: function() {
+        return isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows()
+    }
+};
+function isIE() {
+    return (ua = navigator.userAgent).indexOf("MSIE ") > -1 || ua.indexOf("Trident/") > -1
+}
+isIE() && document.querySelector("body").classList.add("ie"),
+isMobile.any() && document.querySelector("body").classList.add("_touch");
+//isMobile
 
 // разворот бургера
 //===========
@@ -271,9 +412,11 @@ for (let index = 0; index < checkboxCategories.length; index++) {
 
 //===========
 //.swiper-pagination-bullets .swiper-pagination-horizontal
-let HUETA_EBUCHAYA = document.querySelector('.mainslider__dotts');
-HUETA_EBUCHAYA.classList.remove('swiper-pagination-horizontal');
+/* let HUETA_EBUCHAYA = document.querySelector('.mainslider__dotts');
+HUETA_EBUCHAYA.classList.remove('swiper-pagination-horizontal'); */
 
+/* let bespoleznayaDich = document.querySelector('.products-slider__info');
+bespoleznayaDich.classList.remove('.swiper-pagination-fraction'); */
 
 
 

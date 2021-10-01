@@ -18,7 +18,8 @@ body {
   background-color: var(--color-white); }
 
 img {
-  max-width: 100%; }
+  max-width: 100%;
+  vertical-align: top; }
 
 a {
   text-decoration: none; }

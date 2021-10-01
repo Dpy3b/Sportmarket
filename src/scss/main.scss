@@ -28,6 +28,42 @@ a{
     color: $black;
 }
 
+
+._swiper {
+    overflow: hidden //типа это отвечает за то чтобы высота картинки была пропорциональна контенту а не 100% от исходной
+}
+
+._swiper>div {
+    width: 100%;
+    height: 100%;
+    box-sizing: content-box;
+    display: flex;
+    position: relative
+}
+
+._swiper.swiper-container-autoheight>div {
+    align-items: flex-start
+}
+
+.swiper-container-initialized .swiper-slide {
+    flex-shrink: 0
+}
+
+.swiper-container-android .swiper-slide,
+.swiper-container-android .swiper-wrapper {
+    transform: translate3d(0, 0, 0)
+}
+
+.swiper-button-lock {
+    display: none !important
+}
+
+//стрелки у products-slider
+._arrow {
+    &--next {
+        transform: rotate(-180deg);
+    }
+}
 @import "./components/container";
 @import "./components/header";
 @import "./components/wrapper";

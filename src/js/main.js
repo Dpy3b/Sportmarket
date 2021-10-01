@@ -73,9 +73,11 @@ for (let index = 0; index < checkboxCategories.length; index++) {
 
 //===========
 //.swiper-pagination-bullets .swiper-pagination-horizontal
-let HUETA_EBUCHAYA = document.querySelector('.mainslider__dotts');
-HUETA_EBUCHAYA.classList.remove('swiper-pagination-horizontal');
+/* let HUETA_EBUCHAYA = document.querySelector('.mainslider__dotts');
+HUETA_EBUCHAYA.classList.remove('swiper-pagination-horizontal'); */
 
+/* let bespoleznayaDich = document.querySelector('.products-slider__info');
+bespoleznayaDich.classList.remove('.swiper-pagination-fraction'); */
 
 
 
