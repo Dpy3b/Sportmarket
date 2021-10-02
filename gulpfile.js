@@ -1,3 +1,4 @@
+DISABLE_NOTIFIER=true;
 const {src, dest, parallel, series, watch} = require('gulp');
 const autoprefixer = require('gulp-autoprefixer');
 const cleanCSS = require('gulp-clean-css');

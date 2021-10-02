@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "MaxGraph",
+  "author": "Dpy3b",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.15.5",
@@ -24,7 +24,6 @@
     "gulp-htmlmin": "^5.0.1",
     "gulp-if": "^3.0.0",
     "gulp-image": "^6.2.1",
-    "gulp-notify": "^4.0.0",
     "gulp-rev": "^9.0.0",
     "gulp-rev-delete-original": "^0.2.3",
     "gulp-rev-rewrite": "^4.0.0",

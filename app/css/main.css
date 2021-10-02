@@ -1698,6 +1698,15 @@ a {
     flex: 0 1 33.333%;
     padding: 0 1.5rem;
     margin-bottom: 3rem; }
+    @media (max-width: 1192px) and (min-width: 991.98px) {
+      .items-products__column {
+        flex: 0 1 50%; } }
+    @media (max-width: 840px) {
+      .items-products__column {
+        flex: 0 1 50%; } }
+    @media (max-width: 600px) {
+      .items-products__column {
+        flex: 1 1 100%; } }
 
 .item-product {
   padding: 1.5rem 0;
@@ -1707,22 +1716,41 @@ a {
   height: 100%;
   color: #000;
   display: flex;
-  flex-direction: column; }
-  .item-product._active .item-product__hover {
-    transform: translateX(0); }
-  .item-product._active .item-product__footer {
-    opacity: 0;
-    transition: all 0.5s ease; }
-  .item-product._active .item-product__body {
-    opacity: 0;
-    transition: all .5s ease; }
+  flex-direction: column;
+  /* &._active{
+        .item-product__hover {
+            transform: translateX(0);
+        }
+        .item-product__footer{
+            opacity: 0;
+            transition: all 0.5s ease;
+        }
+        .item-product__body {
+            opacity: 0;
+            transition: all .5s ease;
+        }
+        .item-product__labels{
+            opacity: 0;
+            transition: all .5s ease;
+        }
+    } */ }
+  @media (min-width: 991.98px) {
+    .item-product:hover .item-product__hover {
+      transform: translateX(0); }
+    .item-product:hover .item-product__footer,
+    .item-product:hover .item-product__body {
+      opacity: 0;
+      transition: all .5s ease; }
+    .item-product:hover .item-product__labels {
+      opacity: 0;
+      transition: all .5s ease; } }
   .item-product__labels {
     position: absolute;
     left: 15px;
     top: 15px;
-    display: none; }
+    opacity: 1; }
   .item-product__label {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     color: #fff;
@@ -1751,6 +1779,7 @@ a {
     flex-direction: column;
     opacity: 1; }
   .item-product__title {
+    flex: 1 1 auto;
     display: inline-block;
     color: #36949f;
     font-size: 1.6rem;
@@ -1854,7 +1883,7 @@ a {
   .hover-item-product__price {
     font-size: 24px;
     font-weight: 900;
-    color: #333; }
+    color: #fff; }
 
 .options-item-product__item {
   margin-bottom: 1rem;
