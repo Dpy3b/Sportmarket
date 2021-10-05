@@ -29,10 +29,11 @@
     }
     // .page__content
     &__content {
-    @media (min-width: $md2+px){
-        flex: 1 1 auto;
-        min-width: 0; //для страховки на случай поломки слайдера
-        padding-left: 3rem;
+        margin-bottom: 3rem;
+        @media (min-width: $md2+px){
+            flex: 1 1 auto;
+            min-width: 0; //для страховки на случай поломки слайдера
+            padding-left: 3rem;
         }
     }
     // .page__search
@@ -61,6 +62,20 @@
     }
     // .page__products
     &__products {
+        margin-bottom: 2rem;
+    }
+    // .page__brands
+    &__brands {
+        margin-bottom: 4rem;
+    }
+    // .page__text
+    &__text {
+        margin-bottom: 5rem;
+
+    }
+    // .page__info-menu
+    &__menu {
+        margin-bottom: 5rem;
     }
 }
 .menu-page {
@@ -343,7 +358,7 @@
     color: $black;
     display: flex;
     flex-direction: column;
-    @media (min-width: $md2+px){
+    /* @media (min-width: $md2+px){
         &:hover{
             .item-product__hover {
                 transform: translateX(0);
@@ -358,9 +373,8 @@
                 transition: all .5s ease;
             }
         }
-    }
-
-    /* &._active{
+    } */ // ховером ну такое себе, а через событие mouseenter багует чутка, возможно связано с кучей слоёв свайпера над .item-product__image
+    &._active{
         .item-product__hover {
             transform: translateX(0);
         }
@@ -376,7 +390,7 @@
             opacity: 0;
             transition: all .5s ease;
         }
-    } */
+    }
     // .item-product__labels
     &__labels {
         position: absolute;
@@ -475,7 +489,7 @@
         height: 100%;
         top: 0;
         left: 0;
-        transform: translate(-101%, 0);
+        transform: translate(-101%, 0); // дополнительный 1% условный (можно и 10% написать) нужно для того чтобы не было выезжающей полосы-границы у .hover-item-product, чисто на всякий пожарный короче
     }
 }
 

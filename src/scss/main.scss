@@ -60,7 +60,14 @@ a{
 
 //стрелки у products-slider
 ._arrow {
+    background: url('../img/products-slider__arrow.svg') 0 0 no-repeat;
+    height: 30px;
+    width: 33px;
+    cursor: pointer;
     &--next {
+        //transform: rotate(-180deg);
+    }
+    &--prev{
         transform: rotate(-180deg);
     }
 }
@@ -70,3 +77,4 @@ a{
 @import "./components/forms";
 @import "./components/page";
 @import "./components/home";
+@import "./components/footer";

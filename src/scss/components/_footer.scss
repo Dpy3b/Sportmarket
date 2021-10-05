@@ -1,0 +1,218 @@
+.footer {
+    color: $black;
+    //margin-bottom: 3rem; //чисто для наглядности
+    // .footer__content
+    &__content {
+    }
+    // .footer__body
+    &__body {
+        @media (min-width: $md2+px){
+            display: flex;
+            margin: 0 -2.5rem;
+        }
+
+    }
+    // .footer__column
+    &__column {
+        margin-bottom: 2.5rem;
+        padding: 0 2.5rem;
+        &:first-child{
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
+        &:last-child{
+
+        }
+        @media (min-width: $md2+px){
+            flex: 0 1 50%;
+        }
+    }
+    // .footer__block
+    &__block {
+        flex: 1 1 auto;
+    }
+    // .footer__payments
+    &__payments{
+        display: inline-block;
+        margin: 2rem auto;
+        /* @media (max-width: $md4+px){
+            display: flex;
+            justify-content: center;
+        } */ // оно не обязательно по идее
+        // .footer__payments-item
+        &-item{
+            display: inline-block;
+            max-width: 3.6rem;
+            max-height: 2.4rem;
+            img{
+                max-width: 100%;
+                max-height: 100%;
+            }
+        }
+        &-item + &-item{
+            margin-left: 2.5rem;
+        }
+    }
+    // .footer__widgets
+    &__widgets {
+    }
+    // .footer__bottom
+    &__bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.5rem 0;
+        border-top: 1px dashed $orange;
+        //border-bottom: 1px dashed $orange;
+        @media (max-width: $md4+px){
+            flex-direction: column-reverse;
+            align-items: center;
+        }
+    }
+    // .footer__copyright
+    &__copyright {
+        color: $light-gray;
+        font-size: 1.3rem;
+        line-height: 1.8rem;
+    }
+    // .footer__social
+    &__social {
+        @media (max-width: $md4+px){
+            margin-bottom: 1.5rem;
+        }
+}
+.block-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 2rem;
+    @media (min-width: $md4+px){
+        flex-direction: row;
+        align-items: start;
+        margin: 0 -2.5rem;
+    }
+    // .block-footer__column
+    &__column {
+        &:first-child{
+            margin-bottom: 5rem;
+            width: 16.3rem;
+            @media (min-width: $md4+px){
+                flex: 0 0 16.3rem;
+                margin-bottom: 0;
+                width: 100%;
+            }
+        }
+        &:last-child{
+            flex: 1 1 auto;
+            @media (min-width: $md4+px){
+                padding: 0 2.5rem;
+            }
+        }
+        @media (min-width: $md4+px){
+            padding: 0 2.5rem;
+        }
+    }
+    // .block-footer__logo
+    &__logo {
+        display: flex;
+        width: 16.3rem;
+        margin-bottom: 2.5rem;
+        img{
+            max-width: 100%;
+        }
+    }
+
+    // .block-footer__phones
+    &__phones {
+        text-align: right;
+        position: relative;
+        &::before{ //способ конечно дикий))) это фича фаерфокса, а в хроме тока через -webkit- работает пока
+            content: '';
+            display: inline-block;
+            position: absolute;
+            top: 50%;
+            left: 7px;
+            -webkit-mask: url('../img/callback-black.svg') no-repeat 100% 100%;
+            -webkit-mask-size: contain;
+            background-color: #000;
+            width: 25px;
+            height: 25px;
+            transform: scaleX(calc(20/25)) translateY(-50%);
+        }
+    }
+    // .block-footer__phone
+    &__phone {
+        display: inline-block;
+        font-size: 1.4rem;
+        line-height: 1.6; //вместо маржина
+        font-weight: 700;
+        color: $black2;
+    }
+    // .block-footer__delivery
+    &__delivery {
+    }
+}
+.logo-footer{
+    // нам не нужен этот класс, я уже удалил его в html, вместо него .block-footer__logo (маржин вниз)
+}
+.delivery-footer {
+    // .delivery-footer__title
+    &__title {
+        font-size: 1.4rem;
+        line-height: 1.2;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.75px;
+        color: $light-gray;
+        margin-bottom: 3rem;
+        //white-space: nowrap; //можно вернуть потом, не в этом проблема
+
+    }
+    // .delivery-footer__items
+    &__items {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-evenly;
+        margin: 0 -1rem;
+    }
+    // .delivery-footer__item
+    &__item {
+        padding: 0 2rem 2rem 2rem;
+    }
+}
+.widgets-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @media (min-width: $md2+px){
+        justify-content: space-between;
+    }
+    @media (min-width: $md4+px){
+        flex-direction: row;
+        justify-content: space-evenly;
+        margin: 0;
+    }
+    // .widgets-footer__column
+    &__column {
+        img{
+            max-width: 100%;
+        }
+        &:first-child{
+            @media (max-width: $md4+px){
+                padding-bottom: 2.5rem;
+                margin-bottom: 2.5rem;
+                border-bottom: 1px solid $gray9;
+            }
+        }
+    }
+}
+.social-footer {
+    display: flex;
+    align-items: center;
+    // .social-footer__item
+    &__item + &__item{
+        margin-left: 1rem;
+    }
+}

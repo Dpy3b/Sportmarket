@@ -1,4 +1,3 @@
-DISABLE_NOTIFIER=true;
 const {src, dest, parallel, series, watch} = require('gulp');
 const autoprefixer = require('gulp-autoprefixer');
 const cleanCSS = require('gulp-clean-css');
@@ -89,6 +88,11 @@ const resources = () => {
     .pipe(dest('./app'))
 }
 
+const favicon = () => {
+    return src(['./src/favicon/**'])
+        .pipe(dest('./app/favicon'))
+}
+
 const images = () => {
   return src(['./src/img/**.jpg', './src/img/**.png', './src/img/**.jpeg', './src/img/*.svg','./src/img/**.webp'])
     .pipe(gulpif(isProd, image()))
@@ -118,6 +122,7 @@ const watchFiles = () => {
   watch('./src/*.html', htmlInclude);
   watch('./src/resources/**', resources);
   watch('./src/img/*.{webp,jpg,jpeg,png,svg}', images);
+  watch('./src/favicon/**', favicon);
   watch('./src/img/svg/**.svg', svgSprites);
 }
 
@@ -154,10 +159,10 @@ const toProd = (done) => {
   done();
 };
 
-exports.default = series(clean, htmlInclude, scripts, styles, resources, images, svgSprites, watchFiles);
+exports.default = series(clean, htmlInclude, scripts, styles, resources, images, favicon, svgSprites, watchFiles);
 
-exports.build = series(toProd, clean, htmlInclude, scripts, styles, resources, images, svgSprites, htmlMinify);
+exports.build = series(toProd, clean, htmlInclude, scripts, styles, resources, images, favicon, svgSprites, htmlMinify);
 
 exports.cache = series(cache, rewrite);
 
-exports.backend = series(toProd, clean, htmlInclude, scriptsBackend, stylesBackend, resources, images, svgSprites);
+exports.backend = series(toProd, clean, htmlInclude, scriptsBackend, stylesBackend, resources, images, favicon, svgSprites);

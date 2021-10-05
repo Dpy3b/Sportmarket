@@ -293,7 +293,7 @@ if (document.querySelector(".products-slider")) {
     })
 }
 
-/* let itemProductImages = document.querySelectorAll(".item-product__image"),
+let itemProductImages = document.querySelectorAll(".item-product__image"),
     body = document.querySelector("body");
 if (itemProductImages && body.offsetWidth > 991.98)
     for (let e = 0; e < itemProductImages.length; e++) {
@@ -305,9 +305,52 @@ if (itemProductImages && body.offsetWidth > 991.98)
         }), l.addEventListener("mouseleave", e => {
             o.classList.remove("_active")
         }))
-    }
+    };
 
- */ // я не имею права пользоваться этим кодом, т.к. моя вёрстка не позволяет задать spaceBetween карточкам, поэтому делаю через ховер
+// тут траблы касающиеся чисто события mouseenter
+
+if (document.querySelector(".brands-slider")) {
+    new Swiper(".brands-slider__body",{
+        observer: !0,
+        observeParents: !0,
+        slidesPerView: 5,
+        spaceBetween: 0,
+        autoHeight: !0, // здесь должно быть !1, но для этого надо избавляться от стилей тех чуваков
+        speed: 600,
+        loop: !0,
+        lazy: {
+            loadPrevNext: !0
+        },
+
+        navigation: {
+            nextEl: ".brands-slider__arrow--next",
+            prevEl: ".brands-slider__arrow--prev"
+        },
+        breakpoints: {
+            280: {
+                slidesPerView: 1
+            },
+            567.98: {
+                slidesPerView: 2
+            },
+            767.98: {
+                slidesPerView: 3
+            },
+            991.98: {
+                slidesPerView: 4
+            },
+            1100: {
+                slidesPerView: 5
+            }
+        }
+        /* on: {
+            lazyImageReady: function () {
+                ibg()
+            }
+        } */
+    })
+};
+
 
 var ua = window.navigator.userAgent
   , msie = ua.indexOf("MSIE ")
@@ -416,8 +459,8 @@ for (let index = 0; index < checkboxCategories.length; index++) {
 let HUETA_EBUCHAYA = document.querySelector('.mainslider__dotts');
 HUETA_EBUCHAYA.classList.remove('swiper-pagination-horizontal');
 
-let bespoleznayaDich = document.querySelector('.products-slider__info');
-bespoleznayaDich.classList.remove('swiper-pagination-fraction');
+/* let bespoleznayaDich = document.querySelector('.products-slider__info');
+bespoleznayaDich.classList.remove('swiper-pagination-fraction'); */
 
 
 

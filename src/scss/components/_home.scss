@@ -30,9 +30,12 @@
         margin: -2.75rem 2.3rem 0 2.3rem;
         counter-reset: item;
         //margin: calc(-15px + -12.5 * ((100vw - 320px)/ 247.98)) 0 0; //украл у метрикса
-        @media (min-width: 567.98px){
+        @media (min-width: $md4+px){
             margin: -2.75rem 0 0;
         } //тупо украл у bdemetrix'a (хотя нам надо украть для swiper-pagination)
+        @media (max-width: $md3+px){
+            display: none; //пока так, но нужно украсть адаптивные маржины
+        }
         .swiper-pagination-bullet{
             display: inline-block !important; //иначе там какой-то класс перекрывает единственную точку, хотя можно удалить когда точек будет больше
             margin: 0 2.3rem;
@@ -40,7 +43,7 @@
             width: 5.5rem;
             height: 5.5rem;
             border-radius: 50%;
-            border: 2px solid $white;
+            border: 2px solid $blue;
             overflow: hidden;
             background-size: cover;
             background-repeat: no-repeat;
@@ -163,15 +166,16 @@
     }
 }
 
-//===================
-
+//====================================================================================================================================================================================================================
 
 .products-slider {
     // .products-slider__header
     &__header {
-        margin-bottom: 3rem;
-        @media (min-width: $md3+px){
+        margin-bottom: 15px;
+        @media (min-width: 640+px){
             display: flex;
+            align-items: center;
+            margin-bottom: 3rem;
         }
     }
     // .products-slider__title
@@ -183,11 +187,16 @@
         text-transform: uppercase;
         letter-spacing: 0.9px; //или 0.75px
         color: $gray3;
+        @media (max-width: 640+px){
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
     }
     // .products-slider__control
     &__control {
         display: flex;
         align-items: center;
+        justify-content: center;
     }
     &__info{
         padding: 0 2rem;
@@ -201,19 +210,253 @@
             font-weight: 900;
             letter-spacing: 0.75px;
         }
+        &.swiper-pagination-fraction{
+            width: auto; //либо так либо через js
+        }
     }
     // .products-slider__arrow
     &__arrow {
-        background: url('../img/products-slider__arrow.svg') 0 0 no-repeat;
-        height: 30px;
-        width: 33px;
-        cursor: pointer;
         &--prev{
-            transform: rotate(-180deg);
         }
     }
 }
-/* .swiper-pagination-fraction{
-    width: auto;
-} */ //либо так либо через js
 
+//====================================================================================================================================================================================================================
+
+.brands-slider {
+    border-bottom: 3px dashed $gray9;
+    border-top: 3px dashed $gray9;
+    padding: 2.5rem 0; // центрируем слайдер между границ
+    // .brands-slider__container
+    &__container {
+        position: relative;
+        overflow: hidden;
+        padding: 0 8rem;
+    }
+    // .brands-slider__body
+    &__body {
+        margin: 0 -3rem;
+        height: 100%;
+    }
+    // .brands-slider__slide
+    &__slide {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-width: 0;
+        @media (min-width: $md4+px){
+            padding: 0 3rem;
+        }
+
+        img {
+            transition: all .3s ease 0s;
+            filter: grayscale(1);
+            cursor: pointer;
+            max-height: 100%;
+            max-width: calc(150px + 133.99 * ((100vw - 320px)/ 247.98));
+            vertical-align: top;
+            @media (min-width: $md4+px) {
+                max-width: 100%;
+            }
+            &:hover{
+                filter: grayscale(0);
+            }
+        }
+    }
+    // .brands-slider__arrows
+    &__arrows {
+    }
+    // .brands-slider__arrow
+    &__arrow {
+        position: absolute;
+        top: 50%;
+        margin: -1.5rem 0 0 0; // т.к. высота стрелки 3rem то мы выраниваем её по вертикали таким вот хитрым образом
+        // .brands-slider__arrow--prev
+        &--prev {
+            left: 10px;
+        }
+        // .brands-slider__arrow--next
+        &--next {
+            right: 10px;
+        }
+    }
+}
+
+//====================================================================================================================================================================================================================
+
+.text-block {
+    // .text-block__container
+    &__container {
+        @media (max-width:$md3+px){
+            padding: 0;
+        }
+    }
+    // .text-block__body
+    &__body {
+        background: url("../img/bg-text.png") 0 0 repeat; //эту картинку можно было бы вырезать в фотошопе и дублировать часть паттерна потом, но чет лень, скачал целиком; repeat здесь чтобы при уменьшении ширины копировался фон во всю высоту блока
+        padding: 3.5rem 2rem 3rem 2rem;
+    }
+    // .text-block__title
+    &__title {
+        font-family: 'UniSans', sans-serif;
+        font-size: 3rem;
+        line-height: 1.2;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.75px;
+        color: $blue8;
+        margin-bottom: 3.3rem;
+    }
+    // .text-block__row
+    &__row {
+        margin: 0 -3rem;
+        font-size: 1.3rem;
+        line-height: 2rem;
+        letter-spacing: 0.3px;
+        @media (min-width:$md2+px){
+            display: flex;
+        }
+    }
+    // .text-block__column
+    &__column {
+        text-align: left;
+        position: relative;
+        padding: 0 3rem;
+        margin-bottom: 3rem;
+        @media (min-width:$md2+px){
+            flex: 0 1 50%;
+            font-size: 1.2rem;
+        }
+    }
+    // .text-block__label
+    &__label {
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.75px;
+        margin-bottom: 0.5rem;
+    }
+    // .text-block__info
+    &__info + &__info{ //прикольно, не знал что в таком синтаксисе (scss) работает комбинация селекторов
+        margin-top: 2rem;
+    }
+    // .text-block__list
+    &__list {
+    }
+    // .text-block__item
+    &__item {
+    }
+    &__item + &__item{
+        margin-top: 0.5rem;
+    }
+    // .text-block__fact
+    &__fact{
+        text-align: justify;
+        &::before{
+            content: '';
+            display: inline-block;
+            width: 1.1rem;
+            height: 1.1rem;
+            background: url('../img/text-arrow.png') left no-repeat;
+            margin-right: 1.7rem;
+            margin-left: 0.7rem;
+        }
+        @media (max-width:$md1+px){
+            br{
+                display: none;
+            }
+        }
+    }
+
+	// .text-block__image
+    &__image {
+        position: absolute;
+        right: 0;
+        bottom: -140px;
+        @media (max-width:$md1+px){
+            display: none;
+        }
+    }
+
+}
+
+//====================================================================================================================================================================================================================
+.info-menu {
+    color: $black;
+    border-bottom: 3px dashed $gray9;
+    border-top: 3px dashed $gray9;
+    margin-bottom: 3rem; //это потом убрать, просто для наглядности добавил
+    // .info-menu__container
+    &__container {
+    }
+    // .info-menu__body
+    &__body {
+        display: inline-block;
+        @media (max-width:$md3+px){
+            display: flex;
+        }
+    }
+    // .info-menu__line
+    &__line {
+        display: flex;
+        align-items: center;
+        border-bottom: 3px solid rgba(176,176,176,0.2);
+        padding: 1.4rem 1rem 1.4rem; //здесь слева и справа по 10px, чтобы не писать это в info-menu
+        &:last-child{
+            border: 0;
+        }
+        @media (max-width:$md3+px){
+            display: block;
+            flex: 0 1 50%;
+            border: 0;
+        }
+    }
+    // .info-menu__label
+    &__label {
+        font-weight: 700;
+        @media (max-width:$md3+px){
+            margin-bottom: 1rem;
+        }
+        @media (min-width:640px){
+            margin-right: 3.5rem;
+        }
+    }
+    // .info-menu__list
+    &__list {
+        @media (min-width:$md3+px){
+            display: flex;
+            align-items: center;
+        }
+    }
+    // .info-menu__item
+    &__item {
+        margin-right: 3rem;
+
+        border-radius: 25px;
+        cursor: pointer;
+        @media (min-width:$md2+px){
+            padding: 0 0.7rem;
+            transition: 0.3s all ease 0s;
+            &:hover{
+                background-color: $orange2;
+                .info-menu__link{
+                    color: $black2;
+                }
+
+            }
+        }
+    }
+    // .info-menu__link
+    &__link {
+        font-size: 1.3rem;
+        line-height: 2.4rem;
+        font-weight: 400;
+        color: $blue2;
+        transition: 0.3s all ease 0s;
+        /* @media (min-width:$md2+px){
+            transition: 0.3s all ease 0s;
+            &:hover{
+                color: $black2;
+            }
+        } */ // мы перенесли это в .info-menu__item
+    }
+}
