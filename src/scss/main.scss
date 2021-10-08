@@ -71,10 +71,23 @@ a{
         transform: rotate(-180deg);
     }
 }
+
+.input {
+    //ниже просто заготовка
+    border: 0;
+    width: 100%;
+    display: block;
+    &._focus{
+    }
+    &._error{
+
+    }
+}
 @import "./components/container";
 @import "./components/header";
 @import "./components/wrapper";
 @import "./components/forms";
 @import "./components/page";
 @import "./components/home";
+@import './components/catalog';
 @import "./components/footer";

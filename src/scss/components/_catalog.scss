@@ -1,0 +1,308 @@
+
+//==================================================================================================================================================================================
+.price-filter {
+    // .price-filter__slider
+    &__slider{
+        height: 0.4rem;
+        background-color: $gray10;
+        margin: 0 1.1rem 5rem;
+        position: relative;
+        &::before, &::after{
+            content: '';
+            background-color: $gray10;
+            width: 1.1rem;
+            height: 0.4rem;
+            position: absolute;
+            top: 0;
+        }
+        &::before{
+            left: -10px;
+        }
+        &::after{
+            right: -10px;
+        }
+        .noUi-base, .noUi-connects{
+            position: relative;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        .noUi-connects{
+            overflow: hidden;
+            z-index: 0;
+        }
+        .noUi-connect,
+        .noUi-origin {
+            will-change: transform;
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            right: 0;
+            transform-origin: 0 0;
+            transform-style: flat;
+        }
+        .noUi-connect{
+            height: 100%;
+            width: 100%;
+            background-color: $orange3;
+        }
+        .noUi-origin {
+            width: 10%;
+            height: 10%;
+        }
+        .noUi-horizontal .noUi-origin {
+            height: 0;
+        }
+        .noUi-handle{
+            width: 2.3rem;
+            height: 2.3rem;
+            //position: relative;
+            top: -10px;
+            right: -11.5px;
+            background-color: $white;
+            border: 1px solid $orange;
+            border-radius: 50%;
+            cursor: pointer;
+
+            backface-visibility: hidden;
+            position: absolute;
+            &::after{
+                content: '';
+                position: absolute;
+                top: 3px;
+                left: 3px;
+                border-radius: 50%;
+                width: 1.5rem;
+                height: 1.5rem;
+                background-color: $orange;
+            }
+        }
+        .noUi-tooltip{
+            position: absolute;
+            bottom: -18px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: $light-gray;
+            font-size: 1.2rem;
+            font-weight: 300;
+        }
+    }
+    // .price-filter__values
+    &__values {
+    }
+    .values-price-filter {
+        display: flex;
+        margin: 0 -1.5rem;
+        // .values-price-filter__column
+        &__column {
+            flex: 0 1 50%;
+            padding: 0 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+        // .values-price-filter__label
+        &__label {
+            font-size: 1.2rem;
+            line-height: 3rem;
+            font-weight: 300;
+            color: $light-gray;
+        }
+        // .values-price-filter__input
+        &__input {
+
+            flex: 1 1 auto;
+            padding-left: 1rem; // собсна для "от/до"
+            input{
+                border: 1px solid $light-gray;
+                height: 2.3rem;
+                font-size: 1.2rem;
+                font-weight: 500;
+                color: $black2;
+                padding: 0 1rem;
+                text-align: center;
+                outline: none; // добавил сам, пиздец какой-то без этого, я даже хз откуда оно берется
+            }
+        }
+    }
+}
+//==================================================================================================================================================================================
+.filter {
+    color: $black;
+    background: $white;
+    border: 4px solid $blue9;
+    // .filter__title
+    &__title {
+        padding: 2.5rem 1.5rem 0.5rem;
+        font-size: 2.4rem;
+        line-height: 1.2;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: $blue7;
+        white-space: nowrap;
+    }
+    // .filter__body
+    &__body {
+    }
+    // .filter__section
+    &__section {
+        border-bottom: 1px solid $blue9;
+    }
+}
+.section-filter {
+    padding: 2rem;
+    border-bottom: 1px solid $blue9;
+    // .section-filter__title
+    &__title {
+        font-size: 1.6rem;
+        line-height: 2.2rem;
+        font-weight: 700;
+        color: $blue7;
+        //margin-bottom: 1.5rem; //это НЕВЕРНОЕ решение, заменили это на pt1.5r в __body
+        min-height: 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        &._spoller{ //сюда можно было бы неплохих анимаций накидать, если бы у нас были svg здесь
+            cursor: pointer;
+            &::after{
+                content: "";
+                border-radius: 50%;
+                flex: 0 0 3rem;
+                width: 3rem;
+                height: 3rem;
+                border: 1px solid $blue9;
+                background: url('../img/text-arrow.png') center no-repeat;
+
+            }
+            &._active{
+                color: $black2;
+                &::after{
+                    border: 1px solid $black;
+                    background: url('../img/spoller-arrow.png') center no-repeat;
+                }
+            }
+        }
+        &._spoller + .section-filter__body{ // изначально скрываем спойлер
+            display: none;
+        }
+    }
+    // .section-filter__body
+    &__body {
+        padding-top: 1.5rem;
+    }
+    // .section-filter__checkbox
+    &__checkbox{
+        display: block; // по какой-то причине сначала оно было нихера не блочным))
+        margin-bottom: 1.5rem;
+        &:last-child{
+            margin-bottom: 0;
+        }
+        .checkbox__input{
+
+            &:checked + .checkbox__text::before{
+                border: 2px solid $blue10;
+            }
+            &:checked + .checkbox__text::after{ // прикольный квадратик получился
+                content: "";
+                position: absolute;
+                top: 3px;
+                left: 3px;
+                width: 9px;
+                height: 9px;
+                background-color: $blue2;
+            }
+        }
+        .checkbox__text{
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: $gray4;
+            letter-spacing: 0;
+            line-height: calc(15 / 12);
+            &::before{
+                width: 1.5rem;
+                height: 1.5rem;
+                border: 2px solid $gray9;
+                flex: 0 0 1.5rem;
+            }
+        }
+    }
+}
+//==================================================================================================================================================================================
+.compare-filter {
+    // .compare-filter__items
+    &__items {
+        padding-right: 1.3rem;
+    }
+    // .compare-filter__item
+    &__item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 1.6rem;
+        line-height: 2.2rem;
+        font-weight: 700;
+        color: $black2;
+
+    }
+    &__item + &__item{
+        margin-top: 1rem;
+    }
+    // .compare-filter__link
+    &__link {
+        flex: 1 1 auto;
+        font-size: 1.2rem;
+        font-weight: 400;
+        text-decoration: underline;
+        color: $blue2;
+    }
+    // .compare-filter__remove
+    &__remove { // тоже пиздос наркомания, нарисовать этот крестик в css 20 секунд времени
+        background: url('../img/error.png') 0 0 no-repeat;
+        flex: 0 0 1rem; // прикольно, если у нас название товара овердлинное, то ничего не случится таким образом с крестиком
+        width: 1rem;
+        height: 1rem;
+        transition: all 0.3s ease 0s;
+        margin-left: 1rem; // чтобы текст короче не наезжал
+        @media (min-width: $md2+px){
+            &:hover{
+                background: url('../img/remove-active.png') 0 0 no-repeat;
+            }
+        }
+    }
+    // .compare-filter__footer
+    &__footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 2.5rem;
+    }
+    // .compare-filter__button
+    &__button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 1.3rem;
+        border-radius: 16.5px;
+        height: 3.3rem;
+        background-color: $blue2;
+        span{ // как по мне - пиздец наркомания, мегахреновая практика
+            background: url('../img/compare-btn.png') left no-repeat;
+            padding-left: 3rem;
+            text-transform: uppercase;
+            color: $white;
+            font-weight: 700;
+            line-height: 3.3rem;
+            display: inline-block;
+        }
+
+    }
+    // .compare-filter__clean
+    &__clean {
+        border-radius: 50%;
+        width: 4rem;
+        height: 4rem;
+        background: $gray11 url('../img/trash.png') center no-repeat; // ещё раз приметить такой вид записи
+    }
+}
+//==================================================================================================================================================================================

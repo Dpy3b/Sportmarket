@@ -73,11 +73,75 @@ for (let index = 0; index < checkboxCategories.length; index++) {
 
 //===========
 //.swiper-pagination-bullets .swiper-pagination-horizontal
-let HUETA_EBUCHAYA = document.querySelector('.mainslider__dotts');
-HUETA_EBUCHAYA.classList.remove('swiper-pagination-horizontal');
+/* let HUETA_EBUCHAYA = document.querySelector('.mainslider__dotts');
+HUETA_EBUCHAYA.classList.remove('swiper-pagination-horizontal'); */
 
 /* let bespoleznayaDich = document.querySelector('.products-slider__info');
 bespoleznayaDich.classList.remove('swiper-pagination-fraction'); */
 
 
+
+// digi////// типа для форматирования чисел после точки в длинных числах с дробями, из шаблона Жеки, надо понять как оно работает, но мы уже либой wNumb воспользовались
+/* function digi(e) {
+    return e.toString().replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1 ")
+}
+
+function digi_animate(e) {
+    if (e.length > 0)
+        for (let t = 0; t < e.length; t++) {
+            const o = e[t],
+                l = parseInt(o.innerHTML.replace(" ", ""));
+            o.classList.contains("_done") || digi_animate_value(o, 0, l, 1500)
+        }
+}
+
+function digi_animate_value(e, t, o, l) {
+    var r = e,
+        n = o - t,
+        i = Math.abs(Math.floor(l / n));
+    i = Math.max(i, 50);
+    var s, c = (new Date).getTime() + l;
+
+    function a() {
+        var e = (new Date).getTime(),
+            t = Math.max((c - e) / l, 0),
+            i = Math.round(o - t * n);
+        r.innerHTML = digi(i), i == o && clearInterval(s)
+    }
+    s = setInterval(a, i), a(), e.classList.add("_done")
+} */
+//////////////
+
+
+// noUiSlider.js
+
+const priceSlider = document.querySelector('.price-filter__slider');
+
+noUiSlider.create(priceSlider, {
+    start: [0, 200000],
+    tooltips: [wNumb({decimals: 0}), wNumb({decimals: 0})], //кароче либа wNumb для кол-ва чисел после точки, доки есть на оф. сайтах
+    range: {
+        'min': 0,
+        'max': 200000
+    },
+    connect: true
+});
+
+const priceStart = document.getElementById('price-start');
+const priceEnd = document.getElementById('price-end');
+priceStart.addEventListener('change', setPricesValues);
+priceEnd.addEventListener('change', setPricesValues);
+
+function setPricesValues() {
+    let priceStartValue;
+    let priceEndValue;
+    if(priceStart.value != ''){
+        priceStartValue = priceStart.value;
+    }
+    if(priceEnd.value != ''){
+        priceEndValue = priceEnd.value;
+    }
+    priceSlider.noUiSlider.set([priceStartValue, priceEndValue]);
+    // в noUiSlider изначально есть прекол который сохраняет исходное положение конца ползунка если значение инпута пустое, оно помогло нам решить задачу выше
+}
 

@@ -667,6 +667,7 @@
         }
         .input{
             height: 100%;
+            padding: 0 2rem;
         }
     }
     // .search-page__btn
@@ -752,19 +753,7 @@
 }
 
 
-.input {
-    //ниже просто заготовка
-    border: 0;
-    width: 100%;
-    display: block;
-    padding: 0 2rem;
-    &._focus{
 
-    }
-    &._error{
-
-    }
-}
 
 
 
