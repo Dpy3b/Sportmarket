@@ -56,4 +56,14 @@
     &._fw{
         width: 100%;
     }
+    &--gray{
+        background-color: $gray11;
+        color: $gray4;
+        @media (min-width: 992px){
+            &:hover{
+                background-color: tomato;
+            }
+        }
+    }
 }
+

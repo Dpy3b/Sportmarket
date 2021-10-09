@@ -145,3 +145,10 @@ function setPricesValues() {
     // в noUiSlider изначально есть прекол который сохраняет исходное положение конца ползунка если значение инпута пустое, оно помогло нам решить задачу выше
 }
 
+if(isMobile.any()){
+    let filterTitle = document.querySelector('.filter__title');
+    filterTitle.addEventListener('click', function(e){
+        filterTitle.classList.toggle('_active');
+        _slideToggle(filterTitle.nextElementSibling);
+    });
+}
