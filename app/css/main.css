@@ -2943,6 +2943,9 @@ a {
     cursor: pointer;
     background: url("../img/products-slider__arrow.svg") center/contain no-repeat;
     flex: 1 0 2.2rem; }
+    @media (max-width: 479.98px) {
+      .pagging__arrow {
+        display: none; } }
   .pagging__arrow-prew {
     transform: rotateY(-180deg); }
   .pagging__list {
