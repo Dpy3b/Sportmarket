@@ -34,7 +34,7 @@
         .noUi-connect,
         .noUi-origin {
             will-change: transform;
-            position: absolute;
+            position: absolute; //самое главное что спасло жизнь
             z-index: 1;
             top: 0;
             right: 0;
@@ -84,7 +84,7 @@
             transform: translateX(-50%);
             color: $light-gray;
             font-size: 1.2rem;
-            font-weight: 300;
+            font-weight: 600; //исх. 300
         }
     }
     // .price-filter__values
@@ -450,13 +450,19 @@
         width: 3.6rem;
         height: 3.6rem;
         background-color: $white;
+        transition: 0.5s ease 0s;
+        @media (min-width: $md2+px){
+            &:hover{
+                background-color: $blue11;
+            }
+        }
         // .view-catalog__item--grid
         &--grid {
-            background: url('../img/grid.svg') center no-repeat;
+            background: $white url('../img/grid.svg') center no-repeat;
         }
         // .view-catalog__item--list
         &--list {
-            background: $blue11 url('../img/list.svg') center no-repeat;
+            background: $white url('../img/list.svg') center no-repeat;
         }
     }
 }

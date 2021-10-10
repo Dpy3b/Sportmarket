@@ -332,6 +332,10 @@
     display: flex;
     margin: 0 -1.5rem;
     flex-wrap: wrap;
+    // .items-products--catalog
+    &--catalog{
+        margin: 0;
+    }
     // .items-products__column
     &__column {
         flex: 0 1 33.333%;
@@ -344,7 +348,7 @@
             flex: 0 1 50%;
         }
         @media (max-width: 600px) {
-            flex: 1 1 100%;
+            flex: 0 1 100%;
         }
 
     }
@@ -543,6 +547,12 @@
             font-weight: 300;
             color: $white;
             border-bottom: 1px dashed;
+            @media (min-width: $md2+px){
+                transition: all 0.3s ease 0s;
+                &:hover{
+                    color: $blue2;
+                }
+            }
         }
     }
     // .hover-item-product__options
