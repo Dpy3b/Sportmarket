@@ -17,11 +17,13 @@
     // .page__side
     &__side {
         //position: relative; // зачем оно тут я хз??!??!
-        flex: 0 0 26rem;
-        z-index: 5;
-        @media (max-width: $md2+px){
+        @media (min-width: $md2+px){
+            flex: 0 0 26rem;
+            max-width: 26rem; // не понял зачем
+            z-index: 5;
             margin-bottom: 3rem;
         }
+
     }
     // .page__menu
     &__menu {

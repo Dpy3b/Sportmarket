@@ -1,0 +1,18 @@
+<svg version="1.2" baseProfile="tiny-ps" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 41 40" width="41" height="40">
+	<title>Карточка товара</title>
+	<defs>
+		<image  width="41" height="40" id="img1" href="data:image/png;base64,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"/>
+	</defs>
+	<style>
+		tspan { white-space:pre }
+	</style>
+	<g id="Карточка товара">
+		<g id="Боковая панель">
+			<g id="В стоимость товара включено">
+				<g id="гарантия">
+					<use id="Иконка" href="#img1" x="0" y="0" />
+				</g>
+			</g>
+		</g>
+	</g>
+</svg>

@@ -1,0 +1,16 @@
+<svg version="1.2" baseProfile="tiny-ps" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19 15" width="19" height="15">
+	<title>Карточка товара</title>
+	<style>
+		tspan { white-space:pre }
+		.shp0 { fill: #ffffff;stroke: #e6e6e6;paint-order:stroke fill markers;stroke-width: 6 } 
+	</style>
+	<g id="Карточка товара">
+		<g id="Боковая панель">
+			<g id="кол-во">
+				<g id="Стрелки">
+					<path id="левая" class="shp0" d="M15.79 9.79L9.87 9.79L9.87 12.5L2.94 7.26L9.87 2.03L9.87 4.74L15.79 4.74L15.79 9.79Z" />
+				</g>
+			</g>
+		</g>
+	</g>
+</svg>

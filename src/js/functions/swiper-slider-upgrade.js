@@ -140,7 +140,7 @@ if (document.querySelector(".mainslider")) {
     })
 } */
 if (document.querySelector(".products-slider")) {
-    new Swiper(".products-slider__item", {
+    new Swiper(".products-slider__item", { //либо вначале let imagesSliderProduct = new Swiper(и т.д.)
         observer: !0,
         observeParents: !0,
         slidesPerView: 1,
@@ -180,7 +180,7 @@ if (itemProductImages && body.offsetWidth > 991.98)
 // тут траблы касающиеся чисто события mouseenter
 
 if (document.querySelector(".brands-slider")) {
-    new Swiper(".brands-slider__body",{
+    new Swiper(".brands-slider__body",{ //либо вначале let imagesSliderProduct = new Swiper(и т.д.)
         observer: !0,
         observeParents: !0,
         slidesPerView: 5,
@@ -220,4 +220,37 @@ if (document.querySelector(".brands-slider")) {
         } */
     })
 };
+
+
+
+if (document.querySelector(".images-product")) {
+    let imagesProductSubslider = new Swiper(".images-product__subslider",{ //либо вначале let imagesSliderProduct = new Swiper(и т.д.)
+        observer: !0,
+        observeParents: !0,
+        slidesPerView: 4,
+        spaceBetween: 0,
+        //autoHeight: !0, // здесь должно быть !1, но для этого надо избавляться от стилей тех чуваков
+        speed: 800,
+        //loop: !0,
+        lazy: {
+            loadPrevNext: !0
+        },
+    });
+    let imagesProductMainslider = new Swiper(".images-product__mainslider",{ //либо вначале let imagesSliderProduct = new Swiper(и т.д.)
+        observer: !0,
+        observeParents: !0,
+        slidesPerView: 1,
+        spaceBetween: 0,
+        autoHeight: !0, // здесь должно быть !1, но для этого надо избавляться от стилей тех чуваков
+        speed: 800,
+        //loop: !0,
+        lazy: {
+            loadPrevNext: !0
+        },
+        thumbs: {
+            swiper: imagesProductSubslider,
+        }
+    });
+
+}
 

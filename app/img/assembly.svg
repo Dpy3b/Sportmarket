@@ -1,0 +1,18 @@
+<svg version="1.2" baseProfile="tiny-ps" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34 34" width="34" height="34">
+	<title>Карточка товара</title>
+	<defs>
+		<image  width="34" height="34" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAiCAMAAAANmfvwAAAAAXNSR0IB2cksfwAAAhxQTFRFcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUcsnUmy8e6QAAALR0Uk5TAAVom41iJQed7EkBY/b/6YUVBpHmQlnvtBkCieM6X/KaCYP+4jhm+P1GfivwngN5/M45cNcPc/nNIm+p6xxs0CTlF2fUKl5OkNVh2zDe9PtXXOA0ddw7VQ6+NU3t4T0gvd9ASOoQe9rx+mpM7ktDWC/Aq090orZxWl318zPPklGfrDejCxKu3UenDBOx2K27KTwNyryqx0W/xCGYHRGztxgEFrlyG8GmCB+wHsah51suJoaUgKGmwwAAAiNJREFUeJx1lPdf02AQxg+lYtVeZYsbB6latVpqCNZZxZGKAwREalWoSgUUR0VFEAcq7oWKA9ziHv+g9ya5pE3L/ZJ7ns/3897lcm8AKLLGjc92TABb5Ex0TjLF5CkuRPfU3BQiLx+xoNDSRcWIOK0kiZg+gxycOctyZs8hY26pZcybLxBcsNCyyiREzyKz9GIP6lFgerDES3rpMoNY7jMIXLES/AbiF2Z5QBerZCYqFAC5UndXCyO4RsvXSkysW08SpTLhlpQLZ8NGkYdcTGzaLLSMUlXulq3btBeoEIW2m1XUsHboDsRqN3s7dwHsrma1p0bvoRaTYm8d1HtNgkfSsM8i1EbY38QicsAcSPQgm4cOQ3MxixZrZACxI0ePSa5gK8bheAsTbe0p3xRiHVUnTlbKncopJppOQ6Y4g2eVhHFGfUYCIN4M5zTC2zUGQXG+zUNLccExNlF0EfO7L8khCPQUZiZ6nXi5FOocEOvDyJVMRLsbr14TyfV+6udGTTpxM4i3BkRy+47W892wnehw470GkcTu8648SCUeRjChX5JHfTy/x0oy0ajiE74iA0+ZGYxaxDMVn1uXKNDPzIshw1JeOrHzVdKZr98wMzyiGW+HaTm6Uzp7956ZD5oO0fXItr3fx08G8vkLqVEV8WvUhsC37zryI4t+ET340x+wEwBDg4Lw/aI03Jr4nQ5Q/KGl9v3NoWwknlbEiNHaf1159PwPw6xr0JWhHtoAAAAASUVORK5CYII="/>
+	</defs>
+	<style>
+		tspan { white-space:pre }
+	</style>
+	<g id="Карточка товара">
+		<g id="Боковая панель">
+			<g id="В стоимость товара включено">
+				<g id="Сборка">
+					<use id="иконка" href="#img1" x="0" y="0" />
+				</g>
+			</g>
+		</g>
+	</g>
+</svg>

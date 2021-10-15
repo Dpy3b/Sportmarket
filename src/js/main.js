@@ -152,3 +152,4 @@ if(isMobile.any()){
         _slideToggle(filterTitle.nextElementSibling);
     });
 }
+
