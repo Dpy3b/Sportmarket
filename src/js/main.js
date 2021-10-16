@@ -116,40 +116,62 @@ function digi_animate_value(e, t, o, l) {
 // noUiSlider.js
 
 const priceSlider = document.querySelector('.price-filter__slider');
-
-noUiSlider.create(priceSlider, {
-    start: [0, 200000],
-    tooltips: [wNumb({decimals: 0}), wNumb({decimals: 0})], //кароче либа wNumb для кол-ва чисел после точки, доки есть на оф. сайтах
-    range: {
-        'min': 0,
-        'max': 200000
-    },
-    connect: true
-});
-
-const priceStart = document.getElementById('price-start');
-const priceEnd = document.getElementById('price-end');
-priceStart.addEventListener('change', setPricesValues);
-priceEnd.addEventListener('change', setPricesValues);
-
-function setPricesValues() {
-    let priceStartValue;
-    let priceEndValue;
-    if(priceStart.value != ''){
-        priceStartValue = priceStart.value;
-    }
-    if(priceEnd.value != ''){
-        priceEndValue = priceEnd.value;
-    }
-    priceSlider.noUiSlider.set([priceStartValue, priceEndValue]);
-    // в noUiSlider изначально есть прекол который сохраняет исходное положение конца ползунка если значение инпута пустое, оно помогло нам решить задачу выше
-}
-
-if(isMobile.any()){
-    let filterTitle = document.querySelector('.filter__title');
-    filterTitle.addEventListener('click', function(e){
-        filterTitle.classList.toggle('_active');
-        _slideToggle(filterTitle.nextElementSibling);
+if(priceSlider){ //ебать, вот это фокусы, короче дописали if чтобы скрипты к фильтру добавлялись только если он есть на странице
+    noUiSlider.create(priceSlider, {
+        start: [0, 200000],
+        tooltips: [wNumb({decimals: 0}), wNumb({decimals: 0})], //кароче либа wNumb для кол-ва чисел после точки, доки есть на оф. сайтах
+        range: {
+            'min': 0,
+            'max': 200000
+        },
+        connect: true
     });
+
+    const priceStart = document.getElementById('price-start');
+    const priceEnd = document.getElementById('price-end');
+    priceStart.addEventListener('change', setPricesValues);
+    priceEnd.addEventListener('change', setPricesValues);
+
+    function setPricesValues() {
+        let priceStartValue;
+        let priceEndValue;
+        if(priceStart.value != ''){
+            priceStartValue = priceStart.value;
+        }
+        if(priceEnd.value != ''){
+            priceEndValue = priceEnd.value;
+        }
+        priceSlider.noUiSlider.set([priceStartValue, priceEndValue]);
+        // в noUiSlider изначально есть прекол который сохраняет исходное положение конца ползунка если значение инпута пустое, оно помогло нам решить задачу выше
+    }
+
+    if(isMobile.any()){
+        let filterTitle = document.querySelector('.filter__title');
+        filterTitle.addEventListener('click', function(e){
+            filterTitle.classList.toggle('_active');
+            _slideToggle(filterTitle.nextElementSibling);
+        });
+    }
 }
 
+
+
+let tabs = document.querySelectorAll("._tabs");
+for (let e = 0; e < tabs.length; e++) {
+    let t = tabs[e]
+      , o = t.querySelectorAll("._tabs-item")
+      , l = t.querySelectorAll("._tabs-block");
+    for (let e = 0; e < o.length; e++) {
+        let t = o[e];
+        t.addEventListener("click", (function(r) {
+            for (let e = 0; e < o.length; e++) {
+                o[e].classList.remove("_active"),
+                l[e].classList.remove("_active")
+            }
+            t.classList.add("_active"),
+            l[e].classList.add("_active"),
+            r.preventDefault()
+        }
+        ))
+    }
+};

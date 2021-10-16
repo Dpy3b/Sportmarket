@@ -31,7 +31,9 @@
     }
     // .page__content
     &__content {
-        margin-bottom: 3rem;
+        position: relative;
+        padding-top: 2rem;
+        //margin-bottom: 3rem; //чисто для наглядности, вообще-то НУЖНО удалить
         @media (min-width: $md2+px){
             flex: 1 1 auto;
             min-width: 0; //для страховки на случай поломки слайдера
@@ -57,13 +59,16 @@
     }
     // .page__reviews-side
     &__reviews-side{
-        margin-bottom: 7.5rem;
+        /* margin-bottom: 7.5rem;
         &:last-child{
             margin-bottom: 0;
-        }
+        } */ //это какая-то левая хуйня оказалось, ниже сделал норм
+        margin-bottom: calc(40px + 5 * ((100vw - 320px)/ 447.98));
+        min-width: 0;
     }
     // .page__products
     &__products {
+        flex: 1 1 auto; //хз не опасно ли это, у меня в целом то по другому сверстан слайдер
         margin-bottom: 2rem;
     }
     // .page__brands

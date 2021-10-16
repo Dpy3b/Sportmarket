@@ -235,6 +235,20 @@ if (document.querySelector(".images-product")) {
         lazy: {
             loadPrevNext: !0
         },
+        breakpoints: { // чутка намудрил тут с бп
+            200: {
+                slidesPerView: 3
+            },
+            420: {
+                slidesPerView: 4
+            },
+            992: {
+                slidesPerView: 3
+            },
+            1200: {
+                slidesPerView: 4
+            },
+        },
     });
     let imagesProductMainslider = new Swiper(".images-product__mainslider",{ //либо вначале let imagesSliderProduct = new Swiper(и т.д.)
         observer: !0,

@@ -1,8 +1,9 @@
 ._container { // логика "_" в начале названия не очень понятна, это ж просто класс а не файл, хотя мб на это и расчет
     max-width: $maxWidthContainer + px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 1.5rem; //ВОЗМОЖНО ЭТОТ МУВ БУДЕТ СТОИТЬ МНЕ ЖИЗНИ
+    /* padding: 0 2rem;
     @media (max-width: $md4+px){
         padding: 0 1rem;
-    }
+    } */
 }

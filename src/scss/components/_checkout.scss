@@ -1,0 +1,303 @@
+.title-checkout{ //типа создали общий класс для удобства
+    font-size: 3.6rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-family: 'UniSans', sans-serif;
+    color: $gray9;
+}
+
+//==================================================================================================================================================================================
+.checkout {
+    color: $black;
+    // .checkout__title
+    &__title {
+        margin-bottom: 2.2rem;
+    }
+    // .checkout__content
+    &__content {
+        margin-bottom: 4.5rem;
+    }
+    // .checkout__order
+    &__order {
+    }
+    // .checkout__content
+    &__content {
+        margin: 0 -1rem 5rem -1rem;
+        @media (min-width: $md4+px){
+            margin: 0 0 5rem 0;
+        }
+    }
+}
+.oreder-checkout {
+    // .oreder-checkout__title
+    &__title {
+        margin-bottom: 3rem;
+    }
+    // .oreder-checkout__items
+    &__items {
+    }
+    // .oreder-checkout__item
+    &__item {
+        &:not(:last-child){
+            margin-bottom: 1rem;
+        }
+
+    }
+    // .oreder-checkout__footer
+    &__footer {
+        margin-top: 2.5rem;
+        text-align: right;
+    }
+    // .oreder-checkout__total
+    &__total {
+        font-size: 2.4rem;
+        font-weight: 900;
+        text-transform: uppercase;
+        color: $black2;
+
+        span{
+            font-size: 3.6rem;
+            font-weight: 900;
+            color: $orange2;
+        }
+    }
+    // .oreder-checkout__btn
+    &__btn {
+        display: inline-block; // ну ещё был варик на флексе
+        margin-top: 2.5rem;
+        font-size: 1.4rem;
+        font-weight: 900;
+        text-transform: uppercase;
+        color: $white;
+        background-color: $orange2;
+        padding: .7em 1.3em .6em; //лол что это
+        border-radius: 1.5em;
+        outline: none; // это уже вроде было отключено
+        border: 0; // лол это пиздец, надо короче глобально обнуление кнопок
+
+    }
+}
+//==================================================================================================================================================================================
+.item-order {
+    display: flex;
+    align-items: center;
+    border: 1px solid $white4;
+    position: relative;
+    @media (min-width: $md3+px){
+        padding: 1.5rem;
+    }
+    // .item-order__content
+    &__content {
+        display: flex;
+        align-items: center;
+        flex: 0 1 50%;
+    }
+    // .item-order__image
+    &__image {
+        flex: 0 0 11rem; //классный прикол для любых изображений в целом
+    }
+    // .item-order__body
+    &__body {
+        flex: 1 1 auto;
+        padding-left: 2.5rem;
+    }
+    // .item-order__title
+    &__title {
+        display: inline-block;
+        color: $blue7;
+        font-size: 1.4rem;
+        line-height: 1.57;
+        font-weight: 300;
+        margin-bottom: 0.8rem;
+        span{
+            font-weight: 900;
+        }
+    }
+    // .item-order__price
+    &__price {
+        font-size: 2.4rem;
+        font-weight: 900;
+        color: $black2;
+    }
+    // .item-order__quantity
+    &__quantity {
+        flex: 1 1 auto;
+        padding: 0 30px;
+    }
+    // .item-order__total
+    &__total {
+        flex: 1 1 auto;
+    }
+    // .item-order__label
+    &__label {
+        font-size: 1.6rem;
+        font-weight: 300;
+    }
+    // .item-order__delete
+    &__delete {
+
+        svg{
+            position: absolute;
+            top: 1.6rem;
+            right: 1.6rem;
+            width: 1.6rem;
+            height: 1.6rem;
+            fill: $gray3;
+            transition: all $t ease 0s;
+            @media (min-width: $md2+px){
+                &:hover {
+                    fill: $orange2;
+                }
+            }
+        }
+    }
+}
+//==================================================================================================================================================================================
+.content-checkout {
+    padding: 2rem 2.5rem;
+    margin: 0 -1rem;
+    /* @media (max-width: $md4+px){ //это конечно дикая дичь какая-то, чет бред какой-то
+        margin: 0 -1rem;
+    } */
+    background-color: $gray14; //чутка потемнее поставил, а то не видно же инпуты нихера белые на белом
+    @media (max-width: $md1+px) and (min-width: $md2+px){
+        padding: calc(15px + 5 * ((100vw - 991.98px)/ 178.02)) calc(15px + 10 * ((100vw - 991.98px)/ 178.02));
+    }
+    // .content-checkout__nav
+    &__nav {
+        margin: -2rem -2.5rem 0;
+        @media (min-width: $md4+px){
+            margin: 0;
+        }
+        @media (min-width: $md3+px){
+            display: flex;
+        }
+
+    }
+    // .content-checkout__item
+    &__item {
+        transition: all .5s ease;
+        height: 5rem;
+        color: $blue9;
+        text-transform: uppercase;
+        font-weight: 900;
+        padding: 0 2.5rem;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        font-size: 1.4rem;
+        @media (max-width: $md3+px){
+            flex: 1 1 auto;
+            justify-content: center;
+            padding: 0 1.5rem;
+        }
+        span{
+            border-bottom: 1px dashed $blue9;
+            line-height: 2rem;
+        }
+        &._active{
+            background-color: $blue9;
+            color: $white;
+            span{
+                border-bottom: 1px dashed transparent;
+            }
+        }
+    }
+    // .content-checkout__body
+    &__body {
+        padding-top: 3rem;
+    }
+    // .content-checkout__block
+    &__block {
+    }
+    // .content-checkout__form
+    &__form {
+    }
+}
+
+
+//==================================================================================================================================================================================
+.form-checkout {
+    @media (min-width: $md1+px){
+        display: flex;
+        margin: 0 -1.5rem;
+    }
+    // .form-checkout__column
+    &__column {
+        @media (min-width: $md1+px){
+            flex: 0 1 50%;
+            padding: 0 1.5rem;
+        }
+    }
+    // .form-checkout__line
+    &__line {
+        display: flex;
+        align-items: center;
+        &:not(:last-child){
+            margin-bottom: 1rem;
+        }
+    }
+    // .form-checkout__label
+    &__label {
+        flex: 0 0 12rem;
+        color: $black2;
+        font-weight: 900;
+        span{
+            color: $orange2;
+        }
+    }
+    // .form-checkout__input
+    &__input {
+        flex: 1 1 auto;
+        padding-left: 1.5rem;
+        .checkbox__input {
+            &:checked+.checkbox__text::before {
+                border: 2px solid $blue10;
+            }
+            &:checked+.checkbox__text::after {
+                // прикольный квадратик получился
+                content: "";
+                position: absolute;
+                top: 3px;
+                left: 3px;
+                width: 9px;
+                height: 9px;
+                background-color: $blue2;
+            }
+        }
+        .checkbox__text {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: $gray4;
+            letter-spacing: 0;
+            line-height: calc(15 / 12);
+            &::before {
+                width: 1.5rem;
+                height: 1.5rem;
+                border: 2px solid $gray9;
+                flex: 0 0 1.5rem;
+            }
+        }
+    }
+    // .form-checkout__text
+    &__text {
+        color: $gray4;
+        font-size: 1.3rem;
+        font-weight: 400;
+        line-height: 1.8rem;
+        p{
+            &:not(:last-child){
+                margin-bottom: 2rem;
+            }
+            span{
+                font-size: 1.4rem;
+                font-weight: 900;
+                color: $orange2;
+            }
+        }
+        @media (max-width: $md1+px){
+            padding-top: 2rem;
+        }
+    }
+}
+

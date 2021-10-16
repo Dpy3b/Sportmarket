@@ -46,34 +46,52 @@
         font-family: 'UniSans', sans-serif;
         font-size: 3.6rem;
         line-height: 3.6rem;
-        font-weight: 900;
+        font-weight: 700;
         text-transform: uppercase;
         color: $black2;
         span{
             display: block;
             font-size: 3rem;
             color: $gray9;
+            font-weight: 900;
+            font-family: $font-family;
         }
 
 
     }
     // .product__content
     &__content {
-        display: flex;
+        margin-bottom: 4rem;
+        @media (min-width: 700px){
+            display: flex;
+        }
     }
     // .product__images
     &__images {
         flex: 0 0 42%;
-        min-width: 0;
+        min-width: 0; //магия если у нас свайпер во флекс контейнере, волшебное свойство
         margin-bottom: 4rem;
-        @media (min-width: $md1+px){
+        @media (min-width: 700px){
             margin-bottom: 0;
         }
     }
     // .product__body
     &__body {
         flex: 1 1 auto;
-        padding-left: 3rem;
+        @media (min-width: 700px){
+            padding-left: 3rem;
+        }
+    }
+    // .product__info
+    &__info { // либо тут можно указать по -1rem а на mma4 оставить 1rem паддинг у контейнера, вообще этот вариант лучше, надеюсь я всё не похерил когда изменил на 1.5rem паддинг, но если что можно исправить т.к. я там просто закомментил старые значения
+        margin: 0 -1.5rem 5rem -1.5rem;
+        @media (min-width: $md3+px){
+            margin: 0 0 5rem 0;
+        }
+    }
+    // .product__same
+    &__same {
+        margin-bottom: 6rem;
     }
 }
 //==================================================================================================================================================================================
@@ -90,6 +108,8 @@
         justify-content: center;
         align-items: center;
         position: relative;
+        padding: 3.5rem 1rem;
+        margin-bottom: 1.5rem;
     }
     // .images-product__sale
     &__sale {
@@ -132,6 +152,8 @@
         border: 1px solid $gray15;
         position: relative;
         transition: all $t ease 0s;
+        padding-bottom: 85%; //каким-то образом это вытягивает картинки на 100% высоты без последствий //ну видимо растягиваем блок вниз засчет паддинга, % от высоты блока
+        //text-align: center;
         &::after {
             content: "";
             position: absolute;
@@ -214,9 +236,19 @@
     justify-content: space-between;
     align-items: center;
     padding: 3rem 0;
+    @media (max-width: 1170px){
+        flex-wrap: wrap;
+    }
 
     // .actions-product__column
     &__column {
+        @media (max-width: 1170px){
+            &:last-child{
+                flex: 1 1 100%;
+                margin: 3.5rem 0 0;
+
+            }
+        }
     }
     // .actions-product__price
     &__price {
@@ -383,3 +415,126 @@
         color: $light-gray;
     }
 }
+//==================================================================================================================================================================================
+
+.info-product {
+    color: $black;
+    // .info-product__nav
+    &__nav {
+        display: flex;
+        align-items: center;
+    }
+    // .info-product__item
+    &__item {
+        transition: all .5s ease;
+        height: 5rem;
+        color: $blue9;
+        text-transform: uppercase;
+        font-weight: 900;
+        padding: 0 3rem;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        font-size: 1.4rem;
+        @media (max-width: $md3+px){
+            flex: 1 1 auto;
+            justify-content: center;
+            padding: 0 1.5rem;
+        }
+        span{
+            border-bottom: 1px dashed $blue9;
+            line-height: 2rem;
+        }
+        &._active{
+            background-color: $blue9;
+            color: $white;
+            span{
+                border-bottom: 1px dashed transparent;
+            }
+        }
+
+    }
+    // .info-product__body
+    &__body {
+        transition: all .5s ease;
+    }
+    // .info-product__block
+    &__block {
+        color: $gray4;
+        padding: 2.5rem 1.5rem;
+        @media (min-width: $md3+px){
+            padding: 3.8rem 3.3rem;
+        }
+        p{
+            font-size: 1.4rem;
+            font-weight: 300;
+            line-height: 1.57;
+            color: $light-gray;
+            &:not(:last-child){
+                margin-bottom: 2rem;
+            }
+        }
+        &--table{
+            padding: 1.5rem 0 0;
+        }
+
+    }
+    // .info-product__table //таблицу я полностью спиздил у bdemetrix'a
+    &__table {
+        border-collapse: collapse;
+        width: 100%;
+        tr{
+            border-bottom: 1px solid $gray15;
+        }
+        td{
+            width: 50%;
+            padding: 1.5rem 0.5rem;
+            color: $black2;
+            @media (min-width: $md4+px){
+                padding: 1.5rem 2.5rem;
+            }
+
+        }
+    }
+    // .info-product__label
+    &__label {
+        font-weight: 700;
+    }
+    // .info-product__value
+    &__value {
+        color: $gray4;
+    }
+}
+//==================================================================================================================================================================================
+._tabs {
+}
+._tabs-item {
+}
+._tabs-block {
+    display: none;
+    &._active{
+        display: block;
+    }
+}
+//==================================================================================================================================================================================
+
+.same-products {
+    // .same-products__title
+    &__title {
+        font-size: 3rem;
+        font-weight: 900;
+        color: $gray9;
+        text-transform: uppercase;
+        letter-spacing: 0.3px;
+        margin-bottom: 3.5rem;
+
+    }
+    // .same-products__items
+    &__items {
+
+    }
+}
+
+
+
+
