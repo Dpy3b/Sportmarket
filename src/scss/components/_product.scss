@@ -360,10 +360,8 @@
     stroke: $light-gray;
     stroke-width: 5px;
     transition: all $t ease 0s;
-    @media (min-width: $md2+px){
-        &:hover {
-            stroke: $orange2;
-        }
+    &:hover {
+        stroke: $orange2;
     }
 }
 

@@ -19,6 +19,7 @@
     }
     // .checkout__order
     &__order {
+        margin-bottom: 8.5rem;
     }
     // .checkout__content
     &__content {
@@ -83,18 +84,36 @@
     align-items: center;
     border: 1px solid $white4;
     position: relative;
+    flex-direction: column;
+    padding: 3rem 1.5rem;
+
+    @media (min-width: $md4+px){
+        flex-direction: row;
+    }
     @media (min-width: $md3+px){
         padding: 1.5rem;
     }
+
     // .item-order__content
     &__content {
         display: flex;
         align-items: center;
         flex: 0 1 50%;
+        margin-bottom: 3.5rem;
+        @media (min-width: $md4+px){
+            margin-bottom: 0;
+        }
+        @media (min-width: $md3+px){
+            flex-direction: row;
+        }
     }
     // .item-order__image
     &__image {
         flex: 0 0 11rem; //классный прикол для любых изображений в целом
+        margin-bottom: 2rem;
+        @media (min-width: $md3+px){
+            margin-bottom: 0;
+        }
     }
     // .item-order__body
     &__body {
@@ -119,10 +138,23 @@
         font-weight: 900;
         color: $black2;
     }
+    // .item-order__info
+    &__info {
+        flex: 1 1 auto;
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+        @media (min-width: $md4+px){
+            margin-bottom: 0;
+        }
+    }
     // .item-order__quantity
     &__quantity {
         flex: 1 1 auto;
-        padding: 0 30px;
+        padding-right: 4rem;
+        @media (min-width: $md4+px){
+            padding: 0 4rem;
+        }
     }
     // .item-order__total
     &__total {
@@ -135,7 +167,6 @@
     }
     // .item-order__delete
     &__delete {
-
         svg{
             position: absolute;
             top: 1.6rem;
@@ -144,10 +175,8 @@
             height: 1.6rem;
             fill: $gray3;
             transition: all $t ease 0s;
-            @media (min-width: $md2+px){
-                &:hover {
-                    fill: $orange2;
-                }
+            &:hover {
+                fill: $orange2;
             }
         }
     }
@@ -155,11 +184,16 @@
 //==================================================================================================================================================================================
 .content-checkout {
     padding: 2rem 2.5rem;
-    margin: 0 -1rem;
+    background-color: $gray14; //чутка потемнее поставил, а то не видно же инпуты нихера белые на белом
+    //КАКОГО ТО ХУЯ В МОЕЙ СБОРКЕ ГАЛПА НЕ МИНИФИЦИРУЕТСЯ ХТМЛ, ИЗ-ЗА ЭТОГО ПОТРАТИЛ 3 ЧАСА, ОКАЗЫВАЕТСЯ ВСЁ ВСТАЕТ НЕ НА СВОИ МЕСТА И МЕДИАЗАПРОСЫ ПЕРЕОПРЕДЕЛЯЮТСЯ, КОРОЧЕ ЭТО ПИЗДОС, ЗДЕСЬ ДОЛЖНО БЫТЬ  margin: 0 -1rem; БЕЗ КАКОГО-ЛИБО МЕДИАЗАПРОСА НО РАЗ ТАКОЙ ПИЗДОС ПРОИСХОДИТ, ТОГДА ЭТО ВЫНУЖДЕННАЯ МЕРА
+    /* @media (max-width: $md4+px){
+        margin: 0 -1rem;
+    } */
+    // а что если взять и ваще это закомментировать? вроде всё норм...
     /* @media (max-width: $md4+px){ //это конечно дикая дичь какая-то, чет бред какой-то
         margin: 0 -1rem;
     } */
-    background-color: $gray14; //чутка потемнее поставил, а то не видно же инпуты нихера белые на белом
+
     @media (max-width: $md1+px) and (min-width: $md2+px){
         padding: calc(15px + 5 * ((100vw - 991.98px)/ 178.02)) calc(15px + 10 * ((100vw - 991.98px)/ 178.02));
     }
@@ -205,7 +239,10 @@
     }
     // .content-checkout__body
     &__body {
-        padding-top: 3rem;
+        padding: 2rem 1rem;
+        @media (min-width: $md1+px){
+            padding: 3rem 2.5rem;
+        }
     }
     // .content-checkout__block
     &__block {
@@ -218,14 +255,28 @@
 
 //==================================================================================================================================================================================
 .form-checkout {
-    @media (min-width: $md1+px){
+    margin: 0 -2rem;
+    @media (min-width: $md4+px){
         display: flex;
-        margin: 0 -1.5rem;
+    }
+    @media (min-width: $md3+px){
+        margin: 0;
     }
     // .form-checkout__column
     &__column {
-        @media (min-width: $md1+px){
-            flex: 0 1 50%;
+        &:first-child{
+            flex: 0 1 60%;
+            @media (max-width: $md1+px) and (min-width: $md2+px){
+                flex: 0 1 62%;
+            }
+        }
+        &:last-child{
+            flex: 0 1 40%;
+            @media (max-width: $md1+px) and (min-width: $md2+px){
+                flex: 0 1 38%;
+            }
+        }
+        @media (min-width: $md4+px){
             padding: 0 1.5rem;
         }
     }
@@ -236,6 +287,9 @@
         &:not(:last-child){
             margin-bottom: 1rem;
         }
+        &:last-child{
+            margin-top: 2rem;
+        }
     }
     // .form-checkout__label
     &__label {
@@ -245,11 +299,26 @@
         span{
             color: $orange2;
         }
+        &:empty{ //костылёчек
+            display: none;
+            @media (min-width: $md3+px){
+                display: block;
+            }
+        }
     }
     // .form-checkout__input
     &__input {
         flex: 1 1 auto;
-        padding-left: 1.5rem;
+        padding-left: 0;
+        .form__error{ //там чето глобальное из списка Жеки
+
+        }
+        @media (min-width: $md3+px){
+            padding-left: 1.5rem;
+        }
+        input{
+            height: 2.5rem;
+        }
         .checkbox__input {
             &:checked+.checkbox__text::before {
                 border: 2px solid $blue10;
@@ -267,7 +336,7 @@
         }
         .checkbox__text {
             font-size: 1.2rem;
-            font-weight: 400;
+            font-weight: 600;
             color: $gray4;
             letter-spacing: 0;
             line-height: calc(15 / 12);
@@ -295,9 +364,9 @@
                 color: $orange2;
             }
         }
-        @media (max-width: $md1+px){
+        @media (max-width: $md4+px){
             padding-top: 2rem;
         }
     }
 }
-
+//==================================================================================================================================================================================

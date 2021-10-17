@@ -399,7 +399,53 @@
                           </label>
                         </div>
                       </div>
-
+                    </div>
+                    <div class="form-checkout__column">
+                      <div class="form-checkout__text">
+                        <p><span>*</span> Поля, обязательные для заполнения</p>
+                        <p>Отправка товара производится только после 100% оплаты
+                          товара. Стоимость доставки возможно оплатить при
+                          получении заказа.
+                        </p>
+                        <p>
+                          <span>*</span> Интернет-магазин не несет ответственности за задержку
+                          доставки заказа, связанную с работой курьерских служб DPD
+                          и EMS Почты России.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="content-checkout__block _tabs-block">
+                  <div class="content-checkout__form form-checkout">
+                    <div class="form-checkout__column">
+                      <div class="form-checkout__line">
+                        <div class="form-checkout__label">Имя:&nbsp;<span>*</span></div>
+                        <div class="form-checkout__input">
+                          <input type="text" autocomplete="off" data-value="" name="form[]" data-error="Ошибка" class="input">
+                        </div>
+                      </div>
+                      <div class="form-checkout__line">
+                        <div class="form-checkout__label">Моб. телефон:&nbsp;<span>*</span></div>
+                        <div class="form-checkout__input">
+                          <input type="text" autocomplete="off" data-value="" name="form[]" data-error="Ошибка" class="input">
+                        </div>
+                      </div>
+                      <div class="form-checkout__line">
+                        <div class="form-checkout__label">Ваш E-mail:</div>
+                        <div class="form-checkout__input">
+                          <input type="text" autocomplete="off" data-value="" name="form[]" data-error="Ошибка" class="input">
+                        </div>
+                      </div>
+                      <div class="form-checkout__line">
+                        <div class="form-checkout__label"></div>
+                        <div class="form-checkout__input">
+                          <label class="checkbox">
+                              <input class="checkbox__input" type="checkbox" value="1" name="form[]" data-error="Ошибка">
+                              <span class="checkbox__text"><span>Подписаться на новости и скидки</span></span>
+                          </label>
+                        </div>
+                      </div>
                     </div>
                     <div class="form-checkout__column">
                       <div class="form-checkout__text">
@@ -418,9 +464,9 @@
                   </div>
                 </div>
                 <div class="content-checkout__block _tabs-block"></div>
-                <div class="content-checkout__block _tabs-block"></div>
               </div>
             </div>
+
 
 
 
@@ -439,26 +485,106 @@
                       <div class="item-order__price rub">59 990</div>
                     </div>
                   </div>
-                  <div class="item-order__quantity">
-                    <div class="quantity">
-                      <div class="quantity__button quantity__button--minus">
-                        <svg class="quantity-btn">
-                          <use xlink:href="./img/sprite.svg#quantity-btn"></use>
-                      </svg>
-                      </div>
-                      <div class="quantity__input">
-                        <input type="text" autocomplete="off" name="form[]" value='1'> <!-- здесь инпуту не нужен класс, в js привязка к инпуту а не к классу -->
-                      </div>
-                      <div class="quantity__button quantity__button--plus">
-                        <svg class="quantity-btn">
+                  <div class="item-order__info">
+                    <div class="item-order__quantity">
+                      <div class="quantity">
+                        <div class="quantity__button quantity__button--minus">
+                          <svg class="quantity-btn">
                             <use xlink:href="./img/sprite.svg#quantity-btn"></use>
                         </svg>
+                        </div>
+                        <div class="quantity__input">
+                          <input type="text" autocomplete="off" name="form[]" value='1'> <!-- здесь инпуту не нужен класс, в js привязка к инпуту а не к классу -->
+                        </div>
+                        <div class="quantity__button quantity__button--plus">
+                          <svg class="quantity-btn">
+                              <use xlink:href="./img/sprite.svg#quantity-btn"></use>
+                          </svg>
+                        </div>
                       </div>
                     </div>
+                    <div class="item-order__total">
+                      <div class="item-order__label">Всего:</div>
+                      <div class="item-order__price">59 990</div>
+                    </div>
                   </div>
-                  <div class="item-order__total">
-                    <div class="item-order__label">Всего:</div>
-                    <div class="item-order__price">59 990</div>
+                  <a href="#!" class="item-order__delete">
+                    <svg>
+                        <use xlink:href="./img/sprite.svg#delete"></use>
+                    </svg>
+                  </a>
+                </div>
+                <div class="oreder-checkout__item item-order">
+                  <div class="item-order__content">
+                    <a href="#!" class="item-order__image">
+                      <img src="./img/tovar01.png" alt="">
+                    </a>
+                    <div class="item-order__body">
+                      <a href="#!" class="item-order__title"><span>BH Fitness F1 G6414V</span> Беговая дорожка</a>
+                      <div class="item-order__price rub">59 990</div>
+                    </div>
+                  </div>
+                  <div class="item-order__info">
+                    <div class="item-order__quantity">
+                      <div class="quantity">
+                        <div class="quantity__button quantity__button--minus">
+                          <svg class="quantity-btn">
+                            <use xlink:href="./img/sprite.svg#quantity-btn"></use>
+                        </svg>
+                        </div>
+                        <div class="quantity__input">
+                          <input type="text" autocomplete="off" name="form[]" value='1'> <!-- здесь инпуту не нужен класс, в js привязка к инпуту а не к классу -->
+                        </div>
+                        <div class="quantity__button quantity__button--plus">
+                          <svg class="quantity-btn">
+                              <use xlink:href="./img/sprite.svg#quantity-btn"></use>
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="item-order__total">
+                      <div class="item-order__label">Всего:</div>
+                      <div class="item-order__price">59 990</div>
+                    </div>
+                  </div>
+                  <a href="#!" class="item-order__delete">
+                    <svg>
+                        <use xlink:href="./img/sprite.svg#delete"></use>
+                    </svg>
+                  </a>
+                </div>
+                <div class="oreder-checkout__item item-order">
+                  <div class="item-order__content">
+                    <a href="#!" class="item-order__image">
+                      <img src="./img/tovar01.png" alt="">
+                    </a>
+                    <div class="item-order__body">
+                      <a href="#!" class="item-order__title"><span>BH Fitness F1 G6414V</span> Беговая дорожка</a>
+                      <div class="item-order__price rub">59 990</div>
+                    </div>
+                  </div>
+                  <div class="item-order__info">
+                    <div class="item-order__quantity">
+                      <div class="quantity">
+                        <div class="quantity__button quantity__button--minus">
+                          <svg class="quantity-btn">
+                            <use xlink:href="./img/sprite.svg#quantity-btn"></use>
+                        </svg>
+                        </div>
+                        <div class="quantity__input">
+                          <input type="text" autocomplete="off" name="form[]" value='1'> <!-- здесь инпуту не нужен класс, в js привязка к инпуту а не к классу -->
+                        </div>
+                        <div class="quantity__button quantity__button--plus">
+                          <svg class="quantity-btn">
+                              <use xlink:href="./img/sprite.svg#quantity-btn"></use>
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="item-order__total">
+                      <div class="item-order__label">Всего:</div>
+                      <div class="item-order__price">59 990</div>
+                    </div>
                   </div>
                   <a href="#!" class="item-order__delete">
                     <svg>
