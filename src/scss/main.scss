@@ -1,3 +1,4 @@
+
 // @import 'vars'; если используете scss-переменные - подключите сюда vars, но удалите root из _vars.scss
 @import "./global.scss";
 @import "./vendor.scss";
@@ -84,6 +85,7 @@ a{
 
     }
 }
+
 @import "./components/container";
 @import "./components/header";
 @import "./components/wrapper";

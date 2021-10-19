@@ -1,3 +1,4 @@
+@use "sass:math";
 .page {
     flex: 1 1 auto;
     padding-top: 16rem;
@@ -99,7 +100,7 @@
         flex: 1 1 auto;
         font-family: "UniSans", sans-serif;
         font-size: 30px;
-        line-height: 35 / 30 * 100%;
+        line-height: 35, 30 * 100%;
         text-transform: uppercase;
         letter-spacing: .75px;
         font-weight: 700;
@@ -819,7 +820,7 @@
     // .news-side__title
     &__title {
         display: inline-block;
-        margin: 0 0 25px/30px * 1em 0;
+        margin: 0 0 math.div(25px, 30px) * 1em 0;
     }
     // .news-side__items
     &__items {
@@ -838,7 +839,7 @@
         line-height: 1.8rem;
         font-weight: 900;
         text-transform: uppercase;
-        margin: 0 0 20px/12px * 1em 0;
+        margin: 0 0 math.div(20px, 12px) * 1em 0;
         display: inline-block;
         transition: all 0.3s ease 0s;
         @media (min-width:$md2+px){
@@ -879,7 +880,7 @@
     // .reviews-side__title
     &__title {
         display: inline-block;
-        margin: 0 0 20px/30px * 1em 0;
+        margin: 0 0 math.div(20px, 30px) * 1em 0;
     }
     // .reviews-side__items
     &__items {

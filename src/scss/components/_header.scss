@@ -367,7 +367,7 @@
         margin-right: 5.4rem;
 
         @media (max-width: $maxWidthContainer+px) {
-            margin-right: 30 / $maxWidthContainer * 100vw;
+            margin-right: 30, $maxWidthContainer * 100vw;
         }
 
         &:last-child {
@@ -440,7 +440,7 @@
         padding-right: 5.4rem;
 
         @media (max-width: $maxWidthContainer+px) {
-            padding-right: 30 / $maxWidthContainer * 100vw;
+            padding-right: 30, $maxWidthContainer * 100vw;
         }
 
         &:last-child {
