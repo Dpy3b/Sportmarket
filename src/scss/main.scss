@@ -87,6 +87,12 @@ a{
     }
 }
 
+.select{
+    position: relative;
+    select{
+        display: none;
+    }
+}
 @import "./components/container";
 @import "./components/header";
 @import "./components/wrapper";
@@ -96,4 +102,5 @@ a{
 @import './components/catalog';
 @import './components/product';
 @import './components/checkout';
+@import './components/reviews';
 @import "./components/footer";

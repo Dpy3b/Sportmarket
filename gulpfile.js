@@ -104,7 +104,9 @@ const images = () => {
       './src/img/**/*.jpg',
       './src/img/**/*.png',
       './src/img/**/*.jpeg',
-      './src/img/**/*.webp'
+      './src/img/**/*.webp',
+      './src/img/**.svg',
+
       ])
     .pipe(gulpif(isProd, image()))
     .pipe(dest('./app/img'))
@@ -132,8 +134,8 @@ const watchFiles = () => {
   watch('./src/partials/*.html', htmlInclude);
   watch('./src/*.html', htmlInclude);
   watch('./src/resources/**', resources);
-  watch('./src/img/*.{webp,jpg,jpeg,png}', images);
-  watch('./src/img/**/*.{webp,jpg,jpeg,png}', images);
+  watch('./src/img/*.{webp,jpg,jpeg,png,svg}', images);
+  watch('./src/img/**/*.{webp,jpg,jpeg,png,svg}', images);
   watch('./src/favicon/**', favicon);
   watch('./src/img/svg/**.svg', svgSprites);
 }

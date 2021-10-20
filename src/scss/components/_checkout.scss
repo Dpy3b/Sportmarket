@@ -320,6 +320,7 @@
         .form__error{ //там чето глобальное из списка Жеки
 
         }
+
         @media (min-width: $md3+px){
             padding-left: 1.5rem;
         }
@@ -364,6 +365,11 @@
                 height: 1.5rem;
                 border: 2px solid $gray9;
                 flex: 0 0 1.5rem;
+            }
+        }
+        .select__value{
+            @media (max-width: $md5+px){
+                padding: 1rem 1.3rem 0.6rem;
             }
         }
     }

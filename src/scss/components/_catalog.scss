@@ -485,11 +485,9 @@
         margin-bottom: 2rem;
         display: flex;
         align-items: center;
-        @media (min-width: $md3+px){
-            margin-bottom: 0;
-        }
+        justify-content: center;
         @media (min-width: $md4+px){
-
+            margin-bottom: 0;
         }
     }
     // .nav-catalog__pages
@@ -600,7 +598,7 @@
         width: 2.4rem;
         cursor: pointer;
         background: url('../img/products-slider__arrow.svg') center/contain no-repeat;
-        flex: 1 0 2.2rem; //отсебятина, ну а чо поделать (ну либо ещё сильнее уменьшать маржин/находить и подключать норм свг)
+        flex: 0 1 2.2rem; //отсебятина, ну а чо поделать (ну либо ещё сильнее уменьшать маржин/находить и подключать норм свг)
         @media (max-width: $md5+px){
             display: none;
         }

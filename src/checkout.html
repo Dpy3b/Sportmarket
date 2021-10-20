@@ -499,7 +499,15 @@
                       <div class="form-checkout__line">
                         <div class="form-checkout__label">Способ оплаты: <span>*</span></div>
                         <div class="form-checkout__input">
-                          <input type="text" autocomplete="off" data-value="" name="form[]" data-error="Ошибка" class="input">
+                          <div class="select select-form">
+                            <select name="form[]" class="form" data-default='1'>
+                                <option class="select__options" value="1" selected="selected">Сбербанк Онлайн</option>
+                                <option class="select__options" value="2">Наличными курьеру</option>
+                                <option class="select__options" value="3">Наложенным платежом</option>
+                                <option class="select__options" value="4">Qiwi</option>
+                                <option class="select__options" value="5">ЮMoney</option>
+                            </select>
+                          </div>
                         </div>
                       </div>
                       <div class="form-checkout__line">
