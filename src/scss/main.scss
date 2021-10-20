@@ -79,6 +79,7 @@ a{
     width: 100%;
     display: block;
     outline: none; //сам добавил
+    padding: 0;
     &._focus{
     }
     &._error{

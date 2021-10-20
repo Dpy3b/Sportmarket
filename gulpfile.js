@@ -13,7 +13,7 @@ const revRewrite = require('gulp-rev-rewrite');
 const revDel = require('gulp-rev-delete-original');
 const htmlmin = require('gulp-htmlmin');
 const gulpif = require('gulp-if');
-const plumber = require("gulp-plumber");
+//const plumber = require("gulp-plumber");
 const image = require('gulp-image');
 const { readFileSync } = require('fs');
 const concat = require('gulp-concat');
@@ -39,9 +39,8 @@ const svgSprites = () => {
 
 const styles = () => {
   return src('./src/scss/**/*.scss')
-    .pipe(plumber())
     .pipe(gulpif(!isProd, sourcemaps.init()))
-    .pipe(sass())
+    .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer({
       overrideBrowserslist: ["last 5 versions"],
       cascade: false,
@@ -54,8 +53,7 @@ const styles = () => {
 
 const stylesBackend = () => {
 	return src('./src/scss/**/*.scss')
-        .pipe(plumber())
-		.pipe(sass())
+		.pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer({
       overrideBrowserslist: ["last 5 versions"],
       cascade: false,
@@ -65,13 +63,11 @@ const stylesBackend = () => {
 
 const scripts = () => {
 	src('./src/js/vendor/**.js')
-        .pipe(plumber())
 		.pipe(concat('vendor.js'))
 		.pipe(gulpif(isProd, uglify()))
 		.pipe(dest('./app/js/'))
   return src(
     ['./src/js/functions/**.js', './src/js/components/**.js', './src/js/main.js'])
-    .pipe(plumber())
     .pipe(gulpif(!isProd, sourcemaps.init()))
     .pipe(concat('main.js'))
     .pipe(gulpif(isProd, uglify()))
@@ -82,7 +78,6 @@ const scripts = () => {
 
 const scriptsBackend = () => {
 	src('./src/js/vendor/**.js')
-    .pipe(plumber())
     .pipe(concat('vendor.js'))
     .pipe(gulpif(isProd, uglify()))
 		.pipe(dest('./app/js/'))

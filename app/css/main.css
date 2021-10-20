@@ -1405,6 +1405,7 @@ a {
   width: 100%;
   display: block;
   outline: none;
+  padding: 0;
 }
 ._container {
   max-width: 1180px;
@@ -5081,6 +5082,11 @@ a {
   -ms-flex-align: center;
   align-items: center;
 }
+.form-checkout__line--comment {
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+}
 .form-checkout__line:not(:last-child) {
   margin-bottom: 1rem;
 }
@@ -5089,8 +5095,8 @@ a {
 }
 .form-checkout__label {
   -webkit-box-flex: 0;
-  -ms-flex: 0 0 12rem;
-  flex: 0 0 12rem;
+  -ms-flex: 0 0 12.5rem;
+  flex: 0 0 12.5rem;
   color: #333;
   font-weight: 900;
 }
@@ -5118,6 +5124,16 @@ a {
 }
 .form-checkout__input input {
   height: 2.5rem;
+}
+.form-checkout__input textarea {
+  font-size: 1.4rem;
+  color: #666;
+}
+.form-checkout__input textarea.input {
+  resize: none;
+  border: solid 1px #f5f5f5;
+  width: 100%;
+  height: 120px;
 }
 .form-checkout__input .checkbox__input:checked + .checkbox__text::before {
   border: 2px solid #53b5de;
