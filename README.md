@@ -9,3 +9,5 @@ https://dpy3b.github.io/Sportmarket/app/catalog
 https://dpy3b.github.io/Sportmarket/app/product
 
 https://dpy3b.github.io/Sportmarket/app/checkout
+
+https://dpy3b.github.io/Sportmarket/app/reviews
