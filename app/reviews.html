@@ -405,27 +405,255 @@
             </ul>
           </nav>
           <form action="#!" class="send-reviews">
-            <div class="send-reviews__title">Добавить отзыв</div>
+            <div class="send-reviews__title title-send-reviews">Добавить отзыв</div>
             <div class="send-reviews__content content-reviews">
-              <div class="content-reviews__row">
-                <div class="content-reviews__column">
-                  <div class="content-reviews__label">Оставить отзыв:</div>
-                  
+              <div class="content-reviews__form form-content-reviews">
+                <div class="form-content-reviews__column">
+                  <div class="form-content-reviews__label">Текст отзыва: </div>
+                  <div class="form-content-reviews__input">
+                    <textarea class="input" name="form[]" data-value=""></textarea>
+                  </div>
+
+
+
+
                 </div>
-                <div class="content-reviews__column"></div>
+                <div class="form-content-reviews__column">
+                  <div class="form-content-reviews__line">
+                    <div class="form-content-reviews__label">Имя: <span>*</span></div>
+                    <div class="form-content-reviews__input">
+                      <input type="text" autocomplete="off" data-value="" name="form[]" data-error="Ошибка" class="input">
+                    </div>
+                  </div>
+                  <div class="form-content-reviews__line">
+                    <div class="form-content-reviews__label">E-mail: <span>*</span></div>
+                    <div class="form-content-reviews__input">
+                      <input type="text" autocomplete="off" data-value="" name="form[]" data-error="Ошибка" class="input">
+                    </div>
+                  </div>
+                  <div class="form-content-reviews__line form-content-reviews__line--rating">
+                    <div class="form-content-reviews__label">Ваша оценка: </div>
+                    <div class="form-content-reviews__tabs">
+                      <div class="form-content-reviews__mark-inner">
+                        <input class="form-content-reviews__checkbox" id="tab1" type="radio" name="tabs" checked="">
+                        <label class="form-content-reviews__checkbox-label" for="tab1">
+                           <span>1</span>
+                        </label>
+
+                        <input class="form-content-reviews__checkbox" id="tab2" type="radio" name="tabs">
+                        <label class="form-content-reviews__checkbox-label" for="tab2">
+                           <span>2</span>
+                        </label>
+                        <input class="form-content-reviews__checkbox" id="tab3" type="radio" name="tabs" checked="">
+                        <label class="form-content-reviews__checkbox-label" for="tab3">
+                           <span>3</span>
+                        </label>
+                        <input class="form-content-reviews__checkbox" id="tab4" type="radio" name="tabs" checked="">
+                        <label class="form-content-reviews__checkbox-label" for="tab4">
+                           <span>4</span>
+                        </label>
+                        <input class="form-content-reviews__checkbox" id="tab5" type="radio" name="tabs" checked="">
+                        <label class="form-content-reviews__checkbox-label" for="tab5">
+                           <span>5</span>
+                        </label>
+                        <div class="form-content-reviews__mark-context" id="content-tab1">
+                          Очень плохо
+                        </div>
+                        <div class="form-content-reviews__mark-context" id="content-tab2">
+                          Плохо
+                        </div>
+                        <div class="form-content-reviews__mark-context" id="content-tab3">
+                          Нормально
+                        </div>
+                        <div class="form-content-reviews__mark-context" id="content-tab4">
+                          Хорошо
+                        </div>
+                        <div class="form-content-reviews__mark-context" id="content-tab5">
+                          Отлично!
+                        </div>
+                      </div>
+                      <!-- <div class="form-content-reviews__context-inner">
+                        <div class="form-content-reviews__mark-context" id="content-tab1">
+                          Очень плохо
+                        </div>
+                        <div class="form-content-reviews__mark-context" id="content-tab2">
+                          Плохо
+                        </div>
+                        <div class="form-content-reviews__mark-context" id="content-tab3">
+                          Нормально
+                        </div>
+                        <div class="form-content-reviews__mark-context" id="content-tab4">
+                          Хорошо
+                        </div>
+                        <div class="form-content-reviews__mark-context" id="content-tab5">
+                          Отлично!
+                        </div>
+                      </div>
+ -->
 
 
+
+                    </div>
+                  </div>
+                  <div class="form-content-reviews__btn">
+                    <button class="form__btn btn" type="submit">Отправить</button>
+                  </div>
+
+
+                </div>
               </div>
+            </div>
+          </form>
+          <section class="reviews">
+            <div class="reviews__items">
+              <div class="reviews__item">
+                <div class="reviews__item-header">
+                  <div class="reviews__person-inner">
+                    <div class="reviews__user">Артем Ласточкин</div>
+                    <div class="reviews__date">22.05.2021</div>
+                  </div>
 
 
+                  <div class="reviews__rating-stars">
+                    <svg class="rating-star">
+                      <use xlink:href="./img/sprite.svg#rating-star"></use>
+                    </svg>
+                    <svg class="rating-star">
+                      <use xlink:href="./img/sprite.svg#rating-star"></use>
+                    </svg>
+                    <svg class="rating-star">
+                      <use xlink:href="./img/sprite.svg#rating-star"></use>
+                    </svg>
+                    <svg class="rating-star">
+                      <use xlink:href="./img/sprite.svg#rating-star"></use>
+                    </svg>
+                    <svg class="rating-star">
+                      <use xlink:href="./img/sprite.svg#rating-star"></use>
+                    </svg>
+                  </div>
+                </div>
+                <div class="reviews__item-body">
+                  <div class="reviews__text">
+                    Такой велотренажер себе может позволить каждый житель нашей страны, так как цены ниже просто не найти. Не смотря на такую цену тренажер хорош собой, недостатков в нем не замечено.
+                    <div class="reviews__read-all">Показать всё</div>
+                  </div>
+                </div>
+              </div>
+              <div class="reviews__item">
+                <div class="reviews__item-header">
+                  <div class="reviews__person-inner">
+                    <div class="reviews__user">Денис Кузнецов</div>
+                    <div class="reviews__date">22.05.2021</div>
+                  </div>
+
+                  <div class="reviews__rating-stars">
+                    <svg class="rating-star">
+                      <use xlink:href="./img/sprite.svg#rating-star"></use>
+                    </svg>
+                    <svg class="rating-star">
+                      <use xlink:href="./img/sprite.svg#rating-star"></use>
+                    </svg>
+                    <svg class="rating-star">
+                      <use xlink:href="./img/sprite.svg#rating-star"></use>
+                    </svg>
+                    <svg class="rating-star">
+                      <use xlink:href="./img/sprite.svg#rating-star"></use>
+                    </svg>
+                    <svg class="rating-star">
+                      <use xlink:href="./img/sprite.svg#rating-star"></use>
+                    </svg>
+                  </div>
+                </div>
+                <div class="reviews__item-body">
+                  <div class="reviews__text">
+                    Единственное достоинство этого тренажёра - это компактность. Брали как аналог по цене Torneo Riva B-252MTRN, который уже снят с производства, старая модель превосходит его абсолютно по всем параметрам, дисплей установлен крошечный, который не может одновременно отображать несколько параметров, только по очереди в режиме скан, прошлые результаты сбрасываются самостоятельно, встроенный компьютер их не запоминает, кнопка всего одна, никаких тебе настроек (а в старой модели были часы, календарь и даже термометр и всё сразу на большом дисплее). Выступ для планшета или телефона на консоли пропал. Педали очень лёгкие и не имеют лямок, хотя отверстия для них в наличии, размер педалей слишком мал, поэтому при кручении на босу ногу они достаточно болезненно впиваются в стопы. Кручение педалей на нагрузке с 3-ей по 8-ую включительно происходит рывками словно педали прокручиваются, из-за чего тренироваться практически невозможно, регулировка магнита ничего не даёт. Сам уровень нагрузки на 8-ми соответствует примерно 4-му уровню на старом Riva B-252MTRN, что почти бесполезно, в общем нагрузка никакая да ещё и рывками, регулировка зазора до магнита не спасает ситуацию. Сидеть на максимально доступной высоте седла при росте 181 см крайне неудобно, ноги в коленях недостаточно разгибаются. В целом оставил ужасное впечатление производитель сэкономил на всём до чего только смог дотянуться, жаль потраченных денег на эту кривую поделку.
+                    <div class="reviews__read-all">Показать всё</div>
+                  </div>
+                </div>
+              </div>
+              <div class="reviews__item">
+                <div class="reviews__item-header">
+                  <div class="reviews__person-inner">
+                    <div class="reviews__user">Александр Котов</div>
+                    <div class="reviews__date">22.05.2021</div>
+                  </div>
+
+
+                  <div class="reviews__rating-stars">
+                    <svg class="rating-star">
+                      <use xlink:href="./img/sprite.svg#rating-star"></use>
+                    </svg>
+                    <svg class="rating-star">
+                      <use xlink:href="./img/sprite.svg#rating-star"></use>
+                    </svg>
+                    <svg class="rating-star">
+                      <use xlink:href="./img/sprite.svg#rating-star"></use>
+                    </svg>
+                    <svg class="rating-star">
+                      <use xlink:href="./img/sprite.svg#rating-star"></use>
+                    </svg>
+                    <svg class="rating-star">
+                      <use xlink:href="./img/sprite.svg#rating-star"></use>
+                    </svg>
+                  </div>
+                </div>
+                <div class="reviews__item-body">
+                  <div class="reviews__text">
+                    Получил сегодня данный велотренажёр. Что могу сказать по разовому пользованию.. Да, сиденье немного жестковатое, но кто катался на старых советских кожаных скажут что оно еще достаточно мягкое и комфортное. Собрал легко, без каких либо заморочек, и кажется минут за 5 неспешной сборки. Как-то не ставил задачу засечь время сборки. Работает классно, бесшумно, только шуршание подшипников и слышно. Покупкой доволен словно мышь попавшая на склад сыроварни. По результатам месячного прогона тренажёра, отпишусь о впечатлениях.
+                    <div class="reviews__read-all">Показать всё</div>
+                  </div>
+                </div>
+              </div>
+              <div class="reviews__item">
+                <div class="reviews__item-header">
+                  <div class="reviews__person-inner">
+                    <div class="reviews__user">Дмитрий Шведов</div>
+                    <div class="reviews__date">22.05.2021</div>
+                  </div>
+
+                  <div class="reviews__rating-stars">
+                    <svg class="rating-star">
+                      <use xlink:href="./img/sprite.svg#rating-star"></use>
+                    </svg>
+                    <svg class="rating-star">
+                      <use xlink:href="./img/sprite.svg#rating-star"></use>
+                    </svg>
+                    <svg class="rating-star">
+                      <use xlink:href="./img/sprite.svg#rating-star"></use>
+                    </svg>
+                    <svg class="rating-star">
+                      <use xlink:href="./img/sprite.svg#rating-star"></use>
+                    </svg>
+                    <svg class="rating-star">
+                      <use xlink:href="./img/sprite.svg#rating-star"></use>
+                    </svg>
+                  </div>
+                </div>
+                <div class="reviews__item-body">
+                  <div class="reviews__text">
+                    Отличный велотренажёр. Раньше увлекалась бегом, после перенесенной операции на ноги, бег под
+                    запретом, нашла выход из положения. Т.к. живу в съемной квартире, тренажёр хотелось недорогой,
+                    компактный, чтоб было не жалко, если повредится при переезде. Выбор пал на данную модель. Почитав
+                    отзывы в интернете, решила, покупаю.
+                    Тренажёр пришел в разборе, собирала сама, сложностей не возникло, потратила на это минут 20. Сам по
+                    себе компактный, нашлось место даже в однокомнатной квартире. Со своей задачей справляется на
+                    отлично. Скоростей не много, кручу педали на самой максимальной. Хотелось бы, наверное, потяжелее
+                    нагрузку, но, для начала и такой пойдет. Велотренажёр рассчитан на невысоких людей. Я 176 см ростом,
+                    только только ... Если Вы выше, будете цепляться коленями за руль, не советую покупать. Руль по
+                    высоте не не регулируется.
+                    Единственный минус - жесткое сиденье, нужен чехол. Больше получаса на таком сиденье невозможно
+                    сидеть.
+                    <div class="reviews__read-all">Показать всё</div>
+                  </div>
+                </div>
+              </div>
 
             </div>
 
-
-          </form>
-
+          </section>
 
         </div>
+
       </div>
       <div class="reviews__pages">
         <div class="pagging">

@@ -362,6 +362,9 @@
 .actions-header {
     display: flex;
     align-items: center;
+    @media (max-width: $md5+px){
+        flex-wrap: wrap;
+    }
 
     li {
         margin-right: 5.4rem;

@@ -1,4 +1,4 @@
-@use "sass:math";
+@use "sass:math"; // для правильной работы синтаксиса математических операций Dart Sass 2.0.0
 .page {
     flex: 1 1 auto;
     padding-top: 16rem;
