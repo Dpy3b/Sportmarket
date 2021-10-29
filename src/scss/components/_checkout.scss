@@ -312,6 +312,9 @@
                 display: block;
             }
         }
+        &--textarea{
+            line-height: 1.5;
+        }
     }
     // .form-checkout__input
     &__input {
@@ -332,7 +335,7 @@
             color: $gray4;
             &.input {
                 resize: none;
-                //padding: 1rem 1rem; // опиционально
+                padding: 1rem 1rem; // опиционально
                 border: solid 1px $white4;
                 width: 100%;
                 height: 120px;
@@ -368,6 +371,7 @@
             }
         }
         .select__value{
+            flex-direction: row;
             @media (max-width: $md5+px){
                 padding: 1rem 1.3rem 0.6rem;
             }

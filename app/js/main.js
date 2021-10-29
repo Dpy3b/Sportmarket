@@ -790,7 +790,7 @@ for (let index = 0; index < checkboxCategories.length; index++) {
 HUETA_EBUCHAYA.classList.remove('swiper-pagination-horizontal'); */
 
 /* let bespoleznayaDich = document.querySelector('.products-slider__info');
-bespoleznayaDich.classList.remove('swiper-pagination-fraction'); */
+bespoleznayaDich.classList.remove('swiper-pagination-fraction'); */ // типа он испарился куда-то уже
 
 
 
@@ -888,5 +888,19 @@ for (let e = 0; e < tabs.length; e++) {
         ))
     }
 };
+
+
+
+// попытка сходу разобраться в js
+/* let readAll = document.querySelectorAll('.reviews__read-all');
+let reviewsText = document.querySelectorAll('.reviews__text');
+for (let index = 0; index < array.length; index++) {
+    const readAll1 = readAll[index];
+    readAll1.addEventListener('click', function(e){
+        e.target.reviewsText.classList.toggle('._active');
+    });
+}
+
+ */
 
 //# sourceMappingURL=main.js.map

@@ -59,6 +59,15 @@ a{
     display: none !important
 }
 
+._ibg img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+}
+
 //стрелки у products-slider
 ._arrow {
     background: url('../img/products-slider__arrow.svg') 0 0 no-repeat;
@@ -79,7 +88,7 @@ a{
     width: 100%;
     display: block;
     outline: none; //сам добавил
-    padding: 0;
+    padding: 0 1rem;
     &._focus{
     }
     &._error{

@@ -48,6 +48,7 @@
     line-height: 1.8rem;
     text-transform: uppercase;
     border: none; //от себя добавил
+    cursor: pointer;
     @media (min-width: 992px){
         &:hover{
             background-color: #cc4510;
